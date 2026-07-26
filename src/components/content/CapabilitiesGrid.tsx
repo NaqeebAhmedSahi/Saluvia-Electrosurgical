@@ -1,13 +1,33 @@
 "use client";
 
-import type { LucideIcon } from "lucide-react";
+import {
+  Factory,
+  FileText,
+  Globe2,
+  PenTool,
+  ScanLine,
+  Tag,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/content/SectionHeading";
+
+const ICON_MAP = {
+  factory: Factory,
+  tag: Tag,
+  "pen-tool": PenTool,
+  "scan-line": ScanLine,
+  globe: Globe2,
+  "file-text": FileText,
+} as const satisfies Record<string, LucideIcon>;
+
+export type CapabilityIconName = keyof typeof ICON_MAP;
 
 export type CapabilityItem = {
   title: string;
   description: string;
-  icon: LucideIcon;
+  /** Serializable icon key — resolve inside this client component */
+  icon: CapabilityIconName;
 };
 
 export function CapabilitiesGrid({
@@ -34,7 +54,7 @@ export function CapabilitiesGrid({
 
         <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => {
-            const Icon = item.icon;
+            const Icon = ICON_MAP[item.icon];
             return (
               <StaggerItem key={item.title}>
                 <article className="h-full border-t-2 border-accent pt-5">

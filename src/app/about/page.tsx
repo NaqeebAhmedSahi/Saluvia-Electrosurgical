@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import {
-  Factory,
-  Tag,
-  PenTool,
-  ScanLine,
-  Globe2,
-  FileText,
-} from "lucide-react";
 import { PageHero } from "@/components/content/PageHero";
 import { SectionHeading } from "@/components/content/SectionHeading";
 import { MissionVision } from "@/components/content/MissionVision";
 import { ProcessSteps } from "@/components/content/ProcessSteps";
 import { CertBadges } from "@/components/content/CertBadges";
-import { CapabilitiesGrid } from "@/components/content/CapabilitiesGrid";
+import {
+  CapabilitiesGrid,
+  type CapabilityItem,
+} from "@/components/content/CapabilitiesGrid";
 import { MarketsSection } from "@/components/content/MarketsSection";
 import { WhySaluvia } from "@/components/content/WhySaluvia";
 import { ProductPortfolio } from "@/components/content/ProductPortfolio";
@@ -113,42 +108,42 @@ const QUALITY_FRAMEWORK = [
   "Complete manufacturing traceability",
 ];
 
-const CAPABILITIES = [
+const CAPABILITIES: CapabilityItem[] = [
   {
     title: "OEM Manufacturing",
     description:
       "Full production support for OEM programs, from quotation through long-term supply planning.",
-    icon: Factory,
+    icon: "factory",
   },
   {
     title: "Private Label",
     description:
       "Private branding and customized packaging for distributors and medical device brands.",
-    icon: Tag,
+    icon: "tag",
   },
   {
     title: "Custom Design",
     description:
       "Product customization aligned to clinical preferences, configurations, and brand requirements.",
-    icon: PenTool,
+    icon: "pen-tool",
   },
   {
     title: "Laser Marking",
     description:
       "Permanent laser marking for identification, branding, and lot-level product clarity.",
-    icon: ScanLine,
+    icon: "scan-line",
   },
   {
     title: "Global Export",
     description:
       "Export-ready manufacturing from Pakistan / Sialkot for international healthcare markets.",
-    icon: Globe2,
+    icon: "globe",
   },
   {
     title: "Technical Documentation",
     description:
       "Regulatory documentation support and technical files for qualified buyers on request.",
-    icon: FileText,
+    icon: "file-text",
   },
 ];
 
