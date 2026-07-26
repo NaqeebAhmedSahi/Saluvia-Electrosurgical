@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-/** Intrinsic size of /logo.jpeg (width × height). */
+/** Intrinsic size of /logo-removebg-preview.png (width × height). */
+const LOGO_SRC = "/logo-removebg-preview.png";
 const LOGO_WIDTH = 775;
 const LOGO_HEIGHT = 281;
 
 type BrandLogoProps = {
-  /** Visual context — footer uses a light plate so the JPEG reads on dark bg */
+  /** Footer sits on a dark band — light plate keeps the teal mark readable */
   variant?: "header" | "footer";
   className?: string;
   priority?: boolean;
@@ -33,11 +34,11 @@ export function BrandLogo({
       <span
         className={cn(
           "inline-flex items-center overflow-hidden rounded-md",
-          variant === "footer" && "bg-[#f7f8f9] px-2 py-1.5 shadow-sm",
+          variant === "footer" && "bg-ink-inverse/95 px-2 py-1.5 shadow-sm",
         )}
       >
         <Image
-          src="/logo.jpeg"
+          src={LOGO_SRC}
           alt="Saluvia Industries"
           width={LOGO_WIDTH}
           height={LOGO_HEIGHT}

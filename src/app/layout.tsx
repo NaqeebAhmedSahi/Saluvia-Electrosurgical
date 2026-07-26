@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "B2B manufacturer of electrosurgical instruments for hospitals, medical distributors, and OEM partners worldwide. ISO-certified quality from Sialkot, Pakistan.",
     images: [
       {
-        url: "/logo.jpeg",
+        url: "/logo-removebg-preview.png",
         width: 775,
         height: 281,
         alt: "Saluvia Industries",
