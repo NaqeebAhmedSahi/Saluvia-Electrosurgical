@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Menu, Search, X } from "lucide-react";
 import { CartLink } from "@/components/cart/CartLink";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -67,26 +68,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-(--header-h) w-full max-w-(--container) items-center gap-4 px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="group flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          aria-label="Saluvia — home"
-        >
-          <span
-            aria-hidden
-            className="grid h-9 w-9 place-items-center rounded-md bg-brand text-ink-inverse shadow-sm transition-colors duration-300 group-hover:bg-brand-soft"
-          >
-            <span className="font-display text-lg font-bold leading-none">S</span>
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-bold tracking-tight text-brand">
-              Saluvia
-            </span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-muted">
-              Electrosurgical Instruments
-            </span>
-          </span>
-        </Link>
+        <BrandLogo variant="header" priority />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {

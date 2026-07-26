@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { CATEGORY_FAMILIES } from "@/lib/category-families";
 import {
   SITE_EMAILS,
@@ -65,26 +66,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-(--container) px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-              aria-label="Saluvia Industries — home"
-            >
-              <span
-                aria-hidden
-                className="grid h-9 w-9 place-items-center rounded-md bg-accent text-ink-inverse shadow-sm"
-              >
-                <span className="font-display text-lg font-bold leading-none">S</span>
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold tracking-tight">
-                  Saluvia
-                </span>
-                <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-ink-inverse/65">
-                  Industries
-                </span>
-              </span>
-            </Link>
+            <BrandLogo variant="footer" />
             <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent-bright/90">
               Precision Electrosurgical Instrument Manufacturer
             </p>
