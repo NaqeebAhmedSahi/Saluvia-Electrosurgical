@@ -71,15 +71,9 @@ export function Footer() {
               Precision Electrosurgical Instrument Manufacturer
             </p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-inverse/70">
-              Saluvia Industries manufactures high-quality electrosurgical
-              instruments for hospitals, medical distributors, OEM partners, and
-              healthcare brands worldwide. Our portfolio includes bipolar
-              forceps, electrosurgical electrodes, pencils, cables, and specialty
-              surgical instruments under ISO 13485 and ISO 9001 certified quality
-              systems. Supported by our CE Mark Extension Letter, we deliver
-              precision manufacturing, dependable quality, and consistent global
-              supply with a standard production lead time of approximately 6
-              weeks.
+              ISO 13485 &amp; ISO 9001 certified electrosurgical instruments for
+              hospitals, distributors, and OEM partners worldwide — with a
+              standard lead time of about 6 weeks.
             </p>
 
             <ul
