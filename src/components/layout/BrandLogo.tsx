@@ -30,15 +30,22 @@ export function BrandLogo({
       )}
       aria-label="Saluvia Industries — home"
     >
-      <Image
-        src={LOGO_SRC}
-        alt="Saluvia Industries"
-        width={LOGO_WIDTH}
-        height={LOGO_HEIGHT}
-        priority={priority}
-        sizes="(max-width: 640px) 140px, 180px"
-        className={cn("w-auto object-contain object-left", heightClass)}
-      />
+      <span
+        className={cn(
+          "inline-flex items-center overflow-hidden rounded-md",
+          variant === "footer" && "bg-ink-inverse/95 px-2 py-1.5 shadow-sm",
+        )}
+      >
+        <Image
+          src={LOGO_SRC}
+          alt="Saluvia Industries"
+          width={LOGO_WIDTH}
+          height={LOGO_HEIGHT}
+          priority={priority}
+          sizes="(max-width: 640px) 140px, 180px"
+          className={cn("w-auto object-contain object-left", heightClass)}
+        />
+      </span>
     </Link>
   );
 }
