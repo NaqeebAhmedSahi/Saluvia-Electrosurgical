@@ -52,7 +52,12 @@ textarea {
 }
 
 .section-space {
-  padding-block: clamp(4.5rem, 9vw, 8rem);
+  padding-block: clamp(3.25rem, 6.5vw, 5.5rem);
+}
+
+/* Last band before footer — keep top rhythm, tighten bottom */
+.section-space-end {
+  padding-block: clamp(3.25rem, 6.5vw, 5.5rem) clamp(2rem, 4vw, 3.25rem);
 }
 
 .surface-mist {

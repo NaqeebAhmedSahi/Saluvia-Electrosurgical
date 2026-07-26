@@ -6,19 +6,39 @@ export type QuoteBandProps = {
   email?: string;
   headline?: string;
   description?: string;
+  leadTimeNote?: string;
+  tags?: string[];
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
 };
+
+const DEFAULT_TAGS = [
+  "OEM Manufacturing",
+  "Private Label",
+  "Bulk Orders",
+  "Distributor Partnerships",
+  "Worldwide Export",
+];
 
 export function QuoteBand({
   phone,
   email,
-  headline = "Ready to request a quote?",
-  description = "Share product codes, quantities, and destination — our team will respond with a B2B inquiry path tailored to your facility or distribution channel.",
+  headline = "Request a Quote",
+  description = "Looking for a reliable manufacturing partner for electrosurgical instruments? Share your product codes, quantities, destination, or OEM requirements, and our team will prepare a competitive quotation tailored to your project.",
+  leadTimeNote = "Production Lead Time: Approximately 6 Weeks",
+  tags = DEFAULT_TAGS,
+  primaryHref = "/contact",
+  primaryLabel = "Request a Quote",
+  secondaryHref = "/products",
+  secondaryLabel = "Download Catalog",
 }: QuoteBandProps) {
   return (
     <section
       id="contact"
       aria-labelledby="quote-heading"
-      className="section-space"
+      className="section-space-end"
     >
       <div className="container-site">
         <Reveal>
@@ -29,7 +49,7 @@ export function QuoteBand({
             <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-muted">
-                  Request a quote
+                  Partner with Saluvia Industries
                 </p>
                 <h2
                   id="quote-heading"
@@ -40,21 +60,39 @@ export function QuoteBand({
                 <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-inverse/85">
                   {description}
                 </p>
+                {leadTimeNote ? (
+                  <p className="mt-4 text-sm font-medium text-accent-muted">
+                    {leadTimeNote}
+                  </p>
+                ) : null}
+
+                {tags.length > 0 ? (
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="border border-ink-inverse/25 bg-brand-deep/25 px-3 py-1 text-[11px] font-medium tracking-wide text-ink-inverse/80"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Button
-                    href="/contact"
+                    href={primaryHref}
                     variant="outline"
                     className="min-h-11 border-transparent bg-white text-brand shadow-md hover:border-transparent hover:bg-white hover:text-brand-deep hover:shadow-lg"
                   >
-                    Contact sales
+                    {primaryLabel}
                   </Button>
                   <Button
-                    href="/products"
+                    href={secondaryHref}
                     variant="outline"
                     className="min-h-11 border-white/35 bg-transparent text-white hover:border-white hover:bg-white/10 hover:text-white"
                   >
-                    Browse catalog
+                    {secondaryLabel}
                   </Button>
                 </div>
               </div>

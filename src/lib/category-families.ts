@@ -5,7 +5,8 @@ export const CATEGORY_FAMILIES: {
 }[] = [
   {
     title: "Bipolar Forceps",
-    description: "Reusable and specialty bipolar forceps for precise coagulation.",
+    description:
+      "High-precision reusable and single-use bipolar forceps for neurosurgery, ENT, plastic surgery, ophthalmology, microsurgery, and general surgery.",
     slugs: [
       "bipolar-forceps",
       "bipolar-forceps-non-stick",
@@ -16,9 +17,9 @@ export const CATEGORY_FAMILIES: {
     ],
   },
   {
-    title: "European Forceps",
+    title: "European Bipolar Forceps",
     description:
-      "European-style bipolar forceps including TC, suction, and irrigation.",
+      "Premium European-style forceps including irrigation, suction, insulated, and specialty configurations.",
     slugs: [
       "european-bipolar-forceps",
       "european-bipolar-forceps-non-stick",
@@ -31,7 +32,7 @@ export const CATEGORY_FAMILIES: {
   {
     title: "Single-Use Forceps",
     description:
-      "Sterile single-use bipolar forceps for infection-control protocols.",
+      "Sterile single-use bipolar forceps engineered for infection-control protocols and consistent clinical performance.",
     slugs: [
       "bipolar-forceps-single-use",
       "bipolar-forceps-single-use-non-stick",
@@ -42,7 +43,8 @@ export const CATEGORY_FAMILIES: {
   },
   {
     title: "Electrodes & Pencils",
-    description: "Blade, needle, ball, tungsten, and arthroscopic electrodes.",
+    description:
+      "Blade, needle, loop, ball, tungsten, arthroscopic, and specialty electrodes for consistent cutting and coagulation — plus reusable and disposable pencils with rocker switch and push-button configurations compatible with major electrosurgical generators.",
     slugs: [
       "electrosurgical-pencils",
       "electrodes-2-4-mm-non-stick",
@@ -53,8 +55,9 @@ export const CATEGORY_FAMILIES: {
     ],
   },
   {
-    title: "Cables",
-    description: "Silicone bipolar and monopolar cables — reusable and single-use.",
+    title: "Bipolar & Monopolar Cables",
+    description:
+      "Medical-grade silicone cables manufactured for dependable electrical conductivity, flexibility, and long service life.",
     slugs: [
       "bipolar-cables",
       "monopolar-cables",
@@ -63,9 +66,9 @@ export const CATEGORY_FAMILIES: {
     ],
   },
   {
-    title: "Gynecology & Accessories",
+    title: "Gynecology Instruments",
     description:
-      "Gyn electrosurgical sets, retractors, clamps, and sterilization trays.",
+      "Electrosurgical instruments and accessories designed for gynecological procedures with precision and ergonomic control.",
     slugs: [
       "electrosurgical-instruments-for-gynecology",
       "conization-electrodes-2-4-mm",

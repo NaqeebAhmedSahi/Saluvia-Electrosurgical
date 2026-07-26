@@ -148,7 +148,7 @@ export default async function CategoryDetailPage({
               id="category-search"
               name="q"
               defaultValue={q}
-              placeholder="Search by name or product code"
+              placeholder="Search by product or code…"
               className="w-full flex-1 rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-ink placeholder:text-ink-muted"
             />
             <select

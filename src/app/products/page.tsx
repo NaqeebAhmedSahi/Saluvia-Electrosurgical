@@ -131,7 +131,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                     id="catalog-search"
                     name="q"
                     defaultValue={q}
-                    placeholder="Code or name"
+                    placeholder="Search by product or code…"
                     className="w-full rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-ink placeholder:text-ink-muted"
                   />
                 </div>

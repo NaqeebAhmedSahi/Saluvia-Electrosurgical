@@ -41,12 +41,13 @@ export function createMailTransport() {
 
 export type ContactInquiry = {
   inquiryType: string;
-  organization: string;
+  organization?: string;
   contactName: string;
   jobTitle?: string;
   email: string;
-  phone: string;
+  phone?: string;
   country: string;
+  productCategory?: string;
   productCodes?: string;
   quantityTimeline?: string;
   message: string;
@@ -69,21 +70,23 @@ function row(label: string, value?: string) {
 }
 
 export function buildInquiryEmail(data: ContactInquiry) {
-  const subject = `[Saluvia] ${data.inquiryType} inquiry — ${data.organization}`;
+  const orgLabel = data.organization?.trim() || data.contactName;
+  const subject = `[Saluvia Industries] ${data.inquiryType} inquiry — ${orgLabel}`;
 
   const text = [
-    `New Saluvia B2B inquiry`,
+    `New Saluvia Industries inquiry`,
     ``,
     `Inquiry type: ${data.inquiryType}`,
-    `Organization: ${data.organization}`,
+    data.organization ? `Company: ${data.organization}` : null,
     `Contact: ${data.contactName}`,
     data.jobTitle ? `Job title: ${data.jobTitle}` : null,
     `Email: ${data.email}`,
-    `Phone: ${data.phone}`,
+    data.phone ? `Phone: ${data.phone}` : null,
     `Country: ${data.country}`,
+    data.productCategory ? `Product category: ${data.productCategory}` : null,
     data.productCodes ? `Product codes: ${data.productCodes}` : null,
     data.quantityTimeline
-      ? `Quantity / timeline: ${data.quantityTimeline}`
+      ? `Estimated quantity: ${data.quantityTimeline}`
       : null,
     ``,
     `Message:`,
@@ -96,20 +99,21 @@ export function buildInquiryEmail(data: ContactInquiry) {
   <div style="font-family:Manrope,Segoe UI,Arial,sans-serif;background:#eef3f5;padding:24px;">
     <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #c5d4da;border-radius:12px;overflow:hidden;">
       <div style="background:linear-gradient(90deg,#0b3d4a,#1a9b8e);padding:20px 24px;">
-        <p style="margin:0;color:#d5f0ec;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;">Saluvia</p>
-        <h1 style="margin:8px 0 0;color:#ffffff;font-size:22px;font-weight:600;">New B2B inquiry</h1>
+        <p style="margin:0;color:#d5f0ec;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;">Saluvia Industries</p>
+        <h1 style="margin:8px 0 0;color:#ffffff;font-size:22px;font-weight:600;">New inquiry</h1>
       </div>
       <div style="padding:8px 12px 20px;">
         <table style="width:100%;border-collapse:collapse;font-size:14px;">
           ${row("Inquiry type", data.inquiryType)}
-          ${row("Organization", data.organization)}
-          ${row("Contact name", data.contactName)}
+          ${row("Company name", data.organization)}
+          ${row("Full name", data.contactName)}
           ${row("Job title", data.jobTitle)}
           ${row("Email", data.email)}
           ${row("Phone", data.phone)}
-          ${row("Country / region", data.country)}
+          ${row("Country", data.country)}
+          ${row("Product category", data.productCategory)}
           ${row("Product codes", data.productCodes)}
-          ${row("Quantity / timeline", data.quantityTimeline)}
+          ${row("Estimated quantity", data.quantityTimeline)}
           ${row("Message", data.message)}
         </table>
       </div>

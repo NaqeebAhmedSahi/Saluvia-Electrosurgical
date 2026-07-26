@@ -16,13 +16,19 @@ export function MarketsSection({
   regions,
   segments,
   specialties,
+  regionsLabel = "Regions",
+  segmentsLabel = "Buyer segments",
+  specialtiesLabel = "Clinical focus areas",
 }: {
   eyebrow?: string;
   title: string;
   description: string;
   regions: string[];
   segments: string[];
-  specialties: SpecialtyLink[];
+  specialties?: SpecialtyLink[];
+  regionsLabel?: string;
+  segmentsLabel?: string;
+  specialtiesLabel?: string;
 }) {
   return (
     <section className="section-space">
@@ -39,13 +45,13 @@ export function MarketsSection({
           <Reveal>
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-muted">
-                Regions
+                {regionsLabel}
               </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
+              <ul className="mt-4 space-y-3">
                 {regions.map((region) => (
                   <li
                     key={region}
-                    className="rounded-md border border-border bg-bg-elevated px-3 py-1.5 text-sm text-ink-soft"
+                    className="border-l-2 border-accent/60 pl-4 text-sm leading-relaxed text-ink-soft sm:text-base"
                   >
                     {region}
                   </li>
@@ -57,7 +63,7 @@ export function MarketsSection({
           <Reveal delay={0.06}>
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-muted">
-                Buyer segments
+                {segmentsLabel}
               </h3>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {segments.map((segment) => (
@@ -73,26 +79,30 @@ export function MarketsSection({
           </Reveal>
         </div>
 
-        <Reveal delay={0.1} className="mt-12">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-muted">
-            Clinical focus areas
-          </h3>
-        </Reveal>
-        <Stagger className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {specialties.map((item) => (
-            <StaggerItem key={item.categorySlug}>
-              <Link
-                href={`/categories/${item.categorySlug}`}
-                className="group flex items-center justify-between gap-3 rounded-md border border-border bg-bg-elevated px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-accent/50 hover:text-brand"
-              >
-                <span>{item.name}</span>
-                <span className="text-accent transition-transform group-hover:translate-x-0.5">
-                  →
-                </span>
-              </Link>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        {specialties && specialties.length > 0 ? (
+          <>
+            <Reveal delay={0.1} className="mt-12">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-ink-muted">
+                {specialtiesLabel}
+              </h3>
+            </Reveal>
+            <Stagger className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {specialties.map((item) => (
+                <StaggerItem key={item.categorySlug}>
+                  <Link
+                    href={`/categories/${item.categorySlug}`}
+                    className="group flex items-center justify-between gap-3 rounded-md border border-border bg-bg-elevated px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-accent/50 hover:text-brand"
+                  >
+                    <span>{item.name}</span>
+                    <span className="text-accent transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </>
+        ) : null}
       </div>
     </section>
   );

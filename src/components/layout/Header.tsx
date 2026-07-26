@@ -83,7 +83,7 @@ export function Header() {
               Saluvia
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-muted">
-              Electrosurgical
+              Electrosurgical Instruments
             </span>
           </span>
         </Link>
@@ -121,7 +121,7 @@ export function Header() {
           className="ml-auto hidden max-w-xs flex-1 items-center md:flex"
         >
           <label htmlFor="header-search" className="sr-only">
-            Search products by name or code
+            Search by product or code
           </label>
           <div className="group flex w-full items-center gap-2 rounded-md border border-border bg-bg px-3 py-2 transition-colors focus-within:border-accent focus-within:bg-bg-elevated">
             <Search className="h-4 w-4 shrink-0 text-ink-muted" aria-hidden />
@@ -130,7 +130,7 @@ export function Header() {
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search product or code…"
+              placeholder="Search by product or code…"
               className="w-full bg-transparent text-sm text-ink placeholder:text-ink-muted focus:outline-none"
             />
           </div>
@@ -178,7 +178,7 @@ export function Header() {
             <div className="border-t border-border bg-bg-elevated px-4 pb-6 pt-4 shadow-md sm:px-6">
               <form onSubmit={submitSearch} role="search" className="md:hidden">
                 <label htmlFor="mobile-search" className="sr-only">
-                  Search products by name or code
+                  Search by product or code
                 </label>
                 <div className="flex w-full items-center gap-2 rounded-md border border-border bg-bg px-3 py-2.5 focus-within:border-accent">
                   <Search className="h-4 w-4 shrink-0 text-ink-muted" aria-hidden />
@@ -187,7 +187,7 @@ export function Header() {
                     type="search"
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Search product or code…"
+                    placeholder="Search by product or code…"
                     className="w-full bg-transparent text-sm text-ink placeholder:text-ink-muted focus:outline-none"
                   />
                 </div>

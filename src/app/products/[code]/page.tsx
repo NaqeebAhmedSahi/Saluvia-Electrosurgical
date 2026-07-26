@@ -81,7 +81,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="section-space">
+    <div className="section-space-end">
       <div className="container-site space-y-12">
         <Breadcrumbs
           items={[
@@ -131,12 +131,6 @@ export default async function ProductDetailPage({ params }: PageProps) {
               </p>
             ) : null}
 
-            {summary ? (
-              <p className="rounded-lg border border-border bg-bg px-4 py-3 text-sm text-ink-soft">
-                {summary}
-              </p>
-            ) : null}
-
             {specs.length ? (
               <div className="overflow-hidden rounded-lg border border-border bg-bg-elevated">
                 <table className="w-full text-left text-sm">
@@ -155,6 +149,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   </tbody>
                 </table>
               </div>
+            ) : summary ? (
+              <p className="rounded-lg border border-border bg-bg px-4 py-3 text-sm text-ink-soft">
+                {summary}
+              </p>
             ) : null}
 
             {product.note ? (

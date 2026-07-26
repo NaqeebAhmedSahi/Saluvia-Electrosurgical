@@ -17,8 +17,8 @@ export type Testimonial = {
 };
 
 export function ReviewsEmptyState({
-  title = "Testimonials launching soon",
-  description = "Verified professional feedback will appear here once Saluvia approves published testimonials. We do not display unverified named endorsements.",
+  title = "No published perspectives yet",
+  description = "When professional feedback is available, it will appear here with anonymous role-based attribution. Saluvia does not display unverified named endorsements.",
 }: {
   title?: string;
   description?: string;
@@ -26,7 +26,7 @@ export function ReviewsEmptyState({
   return (
     <Reveal className="rounded-xl border border-dashed border-border-strong bg-bg-elevated px-6 py-14 text-center shadow-sm sm:px-10">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-        Launch state
+        Reviews
       </p>
       <h2 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
         {title}
@@ -66,7 +66,7 @@ export function TestimonialCard({
     >
       {illustrative ? (
         <span className="mb-4 w-fit rounded-sm bg-bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-ink-muted">
-          Illustrative format — not a customer endorsement
+          Sample format
         </span>
       ) : null}
       <blockquote
@@ -113,9 +113,9 @@ export function ReviewsGrid({
               <div className="mt-16">
                 <Reveal>
                   <SectionHeading
-                    eyebrow="Architecture preview"
-                    title="How published feedback will read"
-                    description="Anonymous, role-based framing only. These lines are format examples — not attributed customer quotes."
+                    eyebrow="Format reference"
+                    title="How published feedback is framed"
+                    description="Anonymous, role-based attribution focused on catalog and procurement workflows."
                   />
                 </Reveal>
                 <Stagger className="mt-10 grid gap-6 md:grid-cols-3">

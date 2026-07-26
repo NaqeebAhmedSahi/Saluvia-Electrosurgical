@@ -1,6 +1,11 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { CATEGORY_FAMILIES } from "@/lib/category-families";
+import {
+  SITE_EMAILS,
+  SITE_OFFICE,
+  SITE_PHONE,
+} from "@/lib/site-contact";
 
 const EXPLORE_LINKS = [
   { label: "All Products", href: "/products" },
@@ -10,31 +15,45 @@ const EXPLORE_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { label: "About Saluvia", href: "/about" },
+  { label: "About Saluvia Industries", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "Reviews", href: "/reviews" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
 ];
 
+const CAPABILITY_CHIPS = [
+  "OEM Manufacturing",
+  "Private Label Solutions",
+  "Worldwide Distribution",
+  "Certified Quality",
+  "Professional Surgical Instruments",
+] as const;
+
 const CONTACT_DETAILS = [
   {
     icon: MapPin,
     label: "Address",
-    value: "Address line placeholder, City, Country",
-    href: null,
+    value: SITE_OFFICE.addressSingleLine,
+    href: null as string | null,
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+00 000 000 0000",
-    href: "tel:+000000000000",
+    value: SITE_PHONE.display,
+    href: `tel:${SITE_PHONE.tel}`,
   },
   {
     icon: Mail,
     label: "Email",
-    value: "sales@saluvia.example",
-    href: "mailto:sales@saluvia.example",
+    value: SITE_EMAILS.general,
+    href: `mailto:${SITE_EMAILS.general}`,
+  },
+  {
+    icon: Clock,
+    label: "Hours",
+    value: SITE_OFFICE.businessHours,
+    href: null as string | null,
   },
 ];
 
@@ -49,7 +68,7 @@ export function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-brand-deep"
-              aria-label="Saluvia — home"
+              aria-label="Saluvia Industries — home"
             >
               <span
                 aria-hidden
@@ -57,15 +76,45 @@ export function Footer() {
               >
                 <span className="font-display text-lg font-bold leading-none">S</span>
               </span>
-              <span className="font-display text-xl font-bold tracking-tight">
-                Saluvia
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-xl font-bold tracking-tight">
+                  Saluvia
+                </span>
+                <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.16em] text-ink-inverse/65">
+                  Industries
+                </span>
               </span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-inverse/70">
-              Precision electrosurgical instruments for hospitals, clinics, and
-              distributors — bipolar and monopolar forceps, electrodes, pencils,
-              and cables in reusable and single-use lines.
+            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent-bright/90">
+              Precision Electrosurgical Instrument Manufacturer
             </p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-inverse/70">
+              Saluvia Industries manufactures high-quality electrosurgical
+              instruments for hospitals, medical distributors, OEM partners, and
+              healthcare brands worldwide. Our portfolio includes bipolar
+              forceps, electrosurgical electrodes, pencils, cables, and specialty
+              surgical instruments under ISO 13485 and ISO 9001 certified quality
+              systems. Supported by our CE Mark Extension Letter, we deliver
+              precision manufacturing, dependable quality, and consistent global
+              supply with a standard production lead time of approximately 6
+              weeks.
+            </p>
+
+            <ul
+              className="mt-5 flex flex-wrap gap-x-2 gap-y-1.5 text-[11px] leading-snug text-ink-inverse/55"
+              aria-label="Capabilities"
+            >
+              {CAPABILITY_CHIPS.map((chip, index) => (
+                <li key={chip} className="inline-flex items-center gap-2">
+                  {index > 0 ? (
+                    <span aria-hidden className="text-ink-inverse/30">
+                      ·
+                    </span>
+                  ) : null}
+                  <span>{chip}</span>
+                </li>
+              ))}
+            </ul>
 
             <ul className="mt-6 space-y-3">
               {CONTACT_DETAILS.map(({ icon: Icon, label, value, href }) => (
@@ -155,14 +204,15 @@ export function Footer() {
           <span className="font-semibold text-ink-inverse/80">
             For professional use only.
           </span>{" "}
-          Saluvia products are intended for use by qualified healthcare
-          professionals and authorized B2B partners. Product availability,
-          specifications, and regulatory clearances vary by region. Nothing on
-          this site constitutes medical advice or a claim of clinical outcome.
+          Saluvia Industries products are intended for use by qualified
+          healthcare professionals and authorized B2B partners. Product
+          availability, specifications, and regulatory clearances vary by
+          market. Nothing on this site constitutes medical advice or a claim of
+          clinical outcome.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-ink-inverse/10 pt-6 text-xs text-ink-inverse/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {year} Saluvia. All rights reserved.</p>
+          <p>&copy; {year} Saluvia Industries. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link
               href="/privacy"

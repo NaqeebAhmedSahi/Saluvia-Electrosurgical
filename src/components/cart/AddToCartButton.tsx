@@ -30,7 +30,8 @@ export function AddToCartButton({
     };
   }, []);
 
-  const handleAdd = (event: React.MouseEvent) => {
+  const handleAdd = (event: React.MouseEvent | React.PointerEvent) => {
+    // Stop the ProductCard stretched <Link> from stealing the interaction.
     event.preventDefault();
     event.stopPropagation();
     dispatch(
@@ -54,6 +55,10 @@ export function AddToCartButton({
     <button
       type="button"
       onClick={handleAdd}
+      onPointerDown={(event) => {
+        // Don't preventDefault — that suppresses the click event.
+        event.stopPropagation();
+      }}
       aria-label={
         added
           ? `${product.title} added to cart`

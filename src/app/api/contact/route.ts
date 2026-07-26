@@ -13,6 +13,7 @@ const INQUIRY_TYPES = new Set([
   "Sample",
   "Distributor",
   "Technical",
+  "OEM",
   "Other",
 ]);
 
@@ -41,14 +42,17 @@ function parseBody(body: unknown): { data?: ContactInquiry; error?: string } {
   }
 
   const raw = body as Record<string, unknown>;
+  const inquiryType = asString(raw.inquiryType) || "Quote";
+
   const data: ContactInquiry = {
-    inquiryType: asString(raw.inquiryType),
-    organization: asString(raw.organization),
+    inquiryType,
+    organization: asString(raw.organization) || undefined,
     contactName: asString(raw.contactName),
     jobTitle: asString(raw.jobTitle) || undefined,
     email: asString(raw.email),
-    phone: asString(raw.phone),
+    phone: asString(raw.phone) || undefined,
     country: asString(raw.country),
+    productCategory: asString(raw.productCategory) || undefined,
     productCodes: asString(raw.productCodes) || undefined,
     quantityTimeline: asString(raw.quantityTimeline) || undefined,
     message: asString(raw.message),
@@ -57,13 +61,11 @@ function parseBody(body: unknown): { data?: ContactInquiry; error?: string } {
   if (!INQUIRY_TYPES.has(data.inquiryType)) {
     return { error: "Select a valid inquiry type." };
   }
-  if (!data.organization) return { error: "Organization is required." };
-  if (!data.contactName) return { error: "Contact name is required." };
+  if (!data.contactName) return { error: "Full name is required." };
   if (!data.email || !isValidEmail(data.email)) {
-    return { error: "Enter a valid work email." };
+    return { error: "Enter a valid email address." };
   }
-  if (!data.phone) return { error: "Phone is required." };
-  if (!data.country) return { error: "Country / region is required." };
+  if (!data.country) return { error: "Country is required." };
   if (!data.message) return { error: "Message is required." };
   if (raw.consent !== true) {
     return { error: "Consent is required to submit." };

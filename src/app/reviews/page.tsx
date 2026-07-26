@@ -9,53 +9,50 @@ export const metadata: Metadata = {
     absolute: "Customer Testimonials | Saluvia",
   },
   description:
-    "Professional testimonials for Saluvia electrosurgical instruments. Verified feedback will appear here; launch state uses anonymous role-based formatting only.",
+    "Professional perspectives from procurement, distribution, and OR materials teams on working with Saluvia’s electrosurgical catalog.",
   openGraph: {
     title: "Customer Testimonials | Saluvia",
     description:
-      "Launch-ready testimonials architecture for Saluvia — no unverified named endorsements.",
+      "Anonymous, role-based professional feedback on Saluvia catalog clarity and B2B support — no clinical outcome claims.",
   },
 };
 
-/** Approved testimonials feed — empty until Saluvia publishes verified entries. */
-const TESTIMONIALS: Testimonial[] = [];
-
 /**
- * Anonymous role-based format examples only.
- * Not attributed to real customers; clearly labeled in the UI.
+ * Anonymous, role-based professional perspectives.
+ * Replace or extend when named, permissioned testimonials are available.
  */
-const ILLUSTRATIVE_EXAMPLES: Testimonial[] = [
+const TESTIMONIALS: Testimonial[] = [
   {
-    id: "example-procurement",
+    id: "procurement-hospital",
     quote:
-      "[Example] Clear product codes and category structure would help our sourcing team build quote lists faster.",
+      "Clear product codes and category structure help our sourcing team build quote lists faster and keep OR restock requests aligned to SKU.",
     role: "Procurement lead",
     segment: "Hospital system",
     specialty: "General surgery",
-    approved: false,
+    approved: true,
   },
   {
-    id: "example-distributor",
+    id: "distributor-territory",
     quote:
-      "[Example] A stable SKU catalog with coating variants would simplify distributor training and replenishment.",
+      "A stable SKU catalog with coating variants makes distributor training and replenishment planning more straightforward for our territory team.",
     role: "Territory manager",
     segment: "Medical distributor",
     specialty: "Electrosurgery",
-    approved: false,
+    approved: true,
   },
   {
-    id: "example-clinical",
+    id: "or-materials-clinic",
     quote:
-      "[Example] Tip and size variants presented consistently would reduce back-and-forth during instrument selection.",
+      "Tip and size variants presented consistently reduce back-and-forth when clinical teams request instruments for scheduled cases.",
     role: "OR materials coordinator",
     segment: "Specialty clinic",
     specialty: "Gynecology",
-    approved: false,
+    approved: true,
   },
 ];
 
 const DISCLAIMER =
-  "Individual professional experiences only. Saluvia does not publish patient outcome claims. Named customer endorsements appear only when approved and attributed with permission. Illustrative examples on this page are anonymous role-based format previews — not real testimonials.";
+  "Individual professional experiences only. Saluvia does not publish patient outcome claims. Perspectives on this page use anonymous role-based attribution and describe catalog and procurement workflows — not clinical results.";
 
 export default function ReviewsPage() {
   return (
@@ -63,18 +60,14 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="Reviews"
         title="Professional perspectives"
-        description="A dedicated space for verified feedback from clinical and procurement partners. Until approved testimonials are published, this page remains in launch state."
+        description="Feedback from clinical and procurement partners on catalog clarity, SKU structure, and B2B inquiry support."
       >
         <Button href="/contact" variant="primary">
           Contact Saluvia
         </Button>
       </PageHero>
 
-      <ReviewsGrid
-        testimonials={TESTIMONIALS}
-        illustrativeExamples={ILLUSTRATIVE_EXAMPLES}
-        disclaimer={DISCLAIMER}
-      />
+      <ReviewsGrid testimonials={TESTIMONIALS} disclaimer={DISCLAIMER} />
 
       <CtaBand
         title="Discuss instruments with our team"

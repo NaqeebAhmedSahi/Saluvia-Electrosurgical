@@ -3,41 +3,45 @@
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/content/SectionHeading";
 
-export type Differentiator = {
+export type MissionVisionItem = {
   title: string;
   description: string;
 };
 
-export function WhySaluvia({
-  eyebrow = "Why Saluvia",
-  title = "Built for professional procurement",
-  description = "Depth of catalog, coating options, and B2B support aligned to hospital, clinic, and distributor workflows.",
-  items,
+export function MissionVision({
+  eyebrow = "Purpose",
+  title = "Our mission & vision",
+  description,
+  vision,
+  mission,
 }: {
   eyebrow?: string;
   title?: string;
   description?: string;
-  items: Differentiator[];
+  vision: MissionVisionItem;
+  mission: MissionVisionItem;
 }) {
+  const items = [vision, mission];
+
   return (
-    <section className="section-space bg-brand text-ink-inverse">
+    <section className="section-space bg-bg-tint/40">
       <div className="container-site">
         <Reveal>
           <SectionHeading
             eyebrow={eyebrow}
             title={title}
             description={description}
-            invert
           />
         </Reveal>
-        <Stagger className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+        <Stagger className="mt-12 grid gap-10 md:grid-cols-2 md:gap-14">
           {items.map((item) => (
             <StaggerItem key={item.title}>
-              <article className="h-full border-t border-accent/50 pt-5">
-                <h3 className="font-display text-lg font-semibold text-ink-inverse">
+              <article className="h-full border-t-2 border-accent pt-6">
+                <h3 className="font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-inverse/75">
+                <p className="mt-4 text-base leading-relaxed text-ink-soft sm:text-lg">
                   {item.description}
                 </p>
               </article>

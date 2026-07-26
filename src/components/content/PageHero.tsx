@@ -15,7 +15,7 @@ export function PageHero({
 }: {
   eyebrow?: string;
   title: string;
-  description: string;
+  description: ReactNode;
   children?: ReactNode;
   className?: string;
 }) {
@@ -49,9 +49,9 @@ export function PageHero({
           <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.25rem] md:leading-[1.1]">
             {title}
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-inverse/85 sm:text-lg">
+          <div className="mt-5 max-w-2xl text-base leading-relaxed text-ink-inverse/85 sm:text-lg">
             {description}
-          </p>
+          </div>
           {children ? <div className="mt-8">{children}</div> : null}
         </motion.div>
       </div>

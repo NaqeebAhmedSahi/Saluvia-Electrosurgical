@@ -18,28 +18,47 @@ export type HeroSlide = {
 
 export type HeroProps = {
   brand?: string;
+  brandSupport?: string;
   headline: string;
   support: string;
   slides: HeroSlide[];
   productCount?: number;
   categoryCount?: number;
+  productLabel?: string;
+  categoryLabel?: string;
+  certifications?: string[];
   catalogHref?: string;
+  catalogLabel?: string;
   quoteHref?: string;
+  quoteLabel?: string;
   autoPlayMs?: number;
   className?: string;
 };
+
+const DEFAULT_CERTS = [
+  "ISO 13485 Certified",
+  "ISO 9001 Certified",
+  "CE Mark Extension Letter",
+  "OEM & Private Label Manufacturing",
+] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero({
   brand = "Saluvia",
+  brandSupport = "Industries",
   headline,
   support,
   slides,
-  productCount = 572,
+  productCount = 570,
   categoryCount = 46,
+  productLabel = "Electrosurgical Products",
+  categoryLabel = "Product Categories",
+  certifications = [...DEFAULT_CERTS],
   catalogHref = "/products",
+  catalogLabel = "Explore Catalog",
   quoteHref = "/contact",
+  quoteLabel = "Request a Quote",
   autoPlayMs = 7000,
   className,
 }: HeroProps) {
@@ -115,111 +134,85 @@ export function Hero({
 
       {/* Copy — left safe zone */}
       <div className="container-site relative flex min-h-[min(92vh,52rem)] flex-col justify-center py-24 pr-4 sm:pr-8 lg:pr-[42%]">
-        <motion.div
-          className="max-w-xl"
-          initial={reduceMotion ? false : "hidden"}
-          animate="show"
-          variants={{
-            hidden: {},
-            show: {
-              transition: { staggerChildren: 0.1, delayChildren: 0.08 },
-            },
-          }}
-        >
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 12 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.55, ease },
-              },
-            }}
-            className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-bright/90"
-          >
+        <div className="max-w-xl">
+          {/* Brand / headline / support: visible on first paint */}
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-bright/90">
             Electrosurgical instruments
-          </motion.p>
+          </p>
 
-          <motion.h1
-            id="hero-heading"
-            variants={{
-              hidden: { opacity: 0, y: 18 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease },
-              },
-            }}
-            className="mt-4 max-w-lg"
-          >
+          <h1 id="hero-heading" className="mt-4 max-w-lg">
             <span className="block font-display text-[clamp(2.85rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
               {brand}
             </span>
+            {brandSupport ? (
+              <span className="mt-1 block text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+                {brandSupport}
+              </span>
+            ) : null}
             <span className="mt-5 block text-balance text-xl font-medium leading-snug text-white/95 sm:text-2xl">
               {headline}
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, ease },
-              },
-            }}
-            className="mt-5 max-w-md text-base leading-relaxed text-white/75 sm:text-lg"
-          >
+          <p className="mt-5 max-w-md text-base leading-relaxed text-white/75 sm:text-lg">
             {support}
-          </motion.p>
+          </p>
 
+          {/* Secondary elements: subtle entrance */}
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 14 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.55, ease },
-              },
-            }}
             className="mt-9 flex flex-wrap items-center gap-3"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease, delay: reduceMotion ? 0 : 0.12 }}
           >
             <Button
               href={catalogHref}
               variant="primary"
               className="min-h-11 px-6 text-white shadow-lg"
             >
-              Browse Catalog
+              {catalogLabel}
             </Button>
             <Button
               href={quoteHref}
               variant="outline"
               className="min-h-11 border-white/40 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white/12 hover:text-white"
             >
-              Request Quote
+              {quoteLabel}
             </Button>
           </motion.div>
 
           <motion.p
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: { duration: 0.5, ease, delay: 0.15 },
-              },
-            }}
             className="mt-10 text-sm tracking-wide text-white/55"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease, delay: reduceMotion ? 0 : 0.22 }}
           >
-            <span className="font-semibold text-white/85">{productCount}+</span>{" "}
-            products
+            <span className="font-semibold text-white/85">
+              Over {productCount}
+            </span>{" "}
+            {productLabel}
             <span className="mx-2.5 text-accent-bright/80" aria-hidden>
               ·
             </span>
             <span className="font-semibold text-white/85">{categoryCount}</span>{" "}
-            categories
+            {categoryLabel}
           </motion.p>
-        </motion.div>
+
+          {certifications.length > 0 ? (
+            <motion.p
+              className="mt-5 max-w-lg text-[11px] leading-relaxed tracking-wide text-white/45 sm:text-xs"
+              initial={reduceMotion ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.4,
+                ease,
+                delay: reduceMotion ? 0 : 0.28,
+              }}
+            >
+              {certifications.join(" · ")}
+            </motion.p>
+          ) : null}
+        </div>
       </div>
 
       {/* Controls */}

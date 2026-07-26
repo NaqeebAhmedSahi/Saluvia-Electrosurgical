@@ -11,6 +11,8 @@ export function CtaBand({
   primaryLabel,
   secondaryHref,
   secondaryLabel,
+  tertiaryHref,
+  tertiaryLabel,
   className,
 }: {
   title: string;
@@ -19,10 +21,12 @@ export function CtaBand({
   primaryLabel: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  tertiaryHref?: string;
+  tertiaryLabel?: string;
   className?: string;
 }) {
   return (
-    <section className={cn("section-space", className)}>
+    <section className={cn("section-space-end", className)}>
       <Reveal className="container-site">
         <div className="relative overflow-hidden rounded-xl bg-brand px-8 py-12 text-ink-inverse shadow-lg sm:px-12 sm:py-14">
           <div
@@ -40,7 +44,7 @@ export function CtaBand({
             <p className="mt-3 text-base leading-relaxed text-ink-inverse/85">
               {description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button href={primaryHref} variant="primary">
                 {primaryLabel}
               </Button>
@@ -51,6 +55,15 @@ export function CtaBand({
                   className="border-ink-inverse/30 bg-transparent text-ink-inverse hover:border-accent-bright hover:bg-brand-soft hover:text-ink-inverse"
                 >
                   {secondaryLabel}
+                </Button>
+              ) : null}
+              {tertiaryHref && tertiaryLabel ? (
+                <Button
+                  href={tertiaryHref}
+                  variant="ghost"
+                  className="text-ink-inverse/85 hover:bg-brand-soft hover:text-ink-inverse"
+                >
+                  {tertiaryLabel}
                 </Button>
               ) : null}
             </div>

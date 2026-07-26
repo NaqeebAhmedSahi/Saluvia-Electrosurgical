@@ -26,8 +26,18 @@ function loadCart(): CartItem[] {
   }
 }
 
+function saveCart(items: CartItem[]) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  } catch {
+    // storage unavailable (private mode / quota) — cart stays in memory
+  }
+}
+
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const storeRef = useRef<AppStore | null>(null);
+  const hydratedRef = useRef(false);
+
   if (!storeRef.current) {
     storeRef.current = makeStore();
   }
@@ -36,17 +46,23 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     const store = storeRef.current;
     if (!store) return;
 
-    store.dispatch(hydrateCart(loadCart()));
+    // Hydrate once. Never clobber items already added this session
+    // (click-before-effect race, or Strict Mode remount).
+    if (!hydratedRef.current) {
+      const current = store.getState().cart.items;
+      if (current.length === 0) {
+        const saved = loadCart();
+        if (saved.length > 0) {
+          store.dispatch(hydrateCart(saved));
+        }
+      } else {
+        saveCart(current);
+      }
+      hydratedRef.current = true;
+    }
 
     const unsubscribe = store.subscribe(() => {
-      try {
-        window.localStorage.setItem(
-          STORAGE_KEY,
-          JSON.stringify(store.getState().cart.items),
-        );
-      } catch {
-        // storage unavailable (private mode / quota) — cart stays in memory
-      }
+      saveCart(store.getState().cart.items);
     });
     return unsubscribe;
   }, []);

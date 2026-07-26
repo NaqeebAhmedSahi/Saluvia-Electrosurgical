@@ -17,7 +17,7 @@ export type OverviewProps = {
   eyebrow?: string;
   title?: string;
   lead?: string;
-  body?: string;
+  body?: string | string[];
   aboutHref?: string;
   aboutLabel?: string;
   pillars?: OverviewPillar[];
@@ -26,32 +26,43 @@ export type OverviewProps = {
 
 const DEFAULT_PILLARS: OverviewPillar[] = [
   {
-    title: "Precision engineering",
+    title: "Over 570 Electrosurgical Products",
     description:
-      "Instrument geometry and tip control tuned for consistent electrosurgical performance across specialties.",
+      "A broad catalog spanning bipolar forceps, electrodes, pencils, cables, and specialty instruments.",
   },
   {
-    title: "Manufacturing quality",
+    title: "46 Product Categories",
     description:
-      "Reusable and single-use lines built for reliable handling, cleanability, and OR workflow fit.",
+      "Organized families for hospitals, distributors, and OEM buyers who specify by code and configuration.",
   },
   {
-    title: "B2B partnership",
+    title: "OEM & Private Label Solutions",
     description:
-      "Code-first cataloging and quote-led procurement for hospitals, clinics, distributors, and OEM buyers.",
+      "Customized manufacturing programs for medical device brands and private label partners worldwide.",
+  },
+  {
+    title: "Global Export Experience",
+    description:
+      "Reliable production and supply for international markets, tenders, and multi-region distribution.",
   },
 ];
 
 export function Overview({
-  eyebrow = "Company",
-  title = "Built for clinical precision and B2B clarity",
-  lead = "Saluvia supplies electrosurgical instruments for teams that specify by performance, compatibility, and product code—not by guesswork.",
-  body = "From bipolar forceps and electrodes to cables and specialty sets, our catalog is organized for procurement speed: clear SKUs, consistent imagery, and direct paths from browse to quote.",
+  eyebrow = "Manufacturing",
+  title = "Trusted Manufacturing Partner for Electrosurgery",
+  lead = "From bipolar forceps and electrosurgical electrodes to cables, pencils, and specialty instruments, Saluvia Industries delivers precision-engineered solutions manufactured under internationally recognized quality systems with dependable production and consistent product performance.",
+  body = [
+    "At Saluvia Industries, we specialize in the design and manufacture of reusable and single-use electrosurgical instruments engineered for reliability, precision, and long-term clinical performance.",
+    "Our manufacturing combines skilled craftsmanship with modern CNC machining, precision grinding, polishing, inspection, and rigorous quality control to produce instruments that meet the expectations of hospitals, distributors, and OEM brands across international markets.",
+    "Whether you require standard catalog products or customized OEM solutions, our team provides responsive service, technical support, and consistent manufacturing quality.",
+  ],
   aboutHref = "/about",
-  aboutLabel = "Learn more",
+  aboutLabel = "About Saluvia",
   pillars = DEFAULT_PILLARS,
   className,
 }: OverviewProps) {
+  const bodyParagraphs = Array.isArray(body) ? body : [body];
+
   return (
     <section
       id="overview"
@@ -84,9 +95,11 @@ export function Overview({
           <p className="mt-5 text-base leading-relaxed text-ink-soft sm:text-lg">
             {lead}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base">
-            {body}
-          </p>
+          <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink-muted sm:text-base">
+            {bodyParagraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+          </div>
           <div className="mt-8">
             <Button
               href={aboutHref}
@@ -94,11 +107,12 @@ export function Overview({
               className="bg-brand text-white hover:bg-brand-soft hover:text-white"
             >
               {aboutLabel}
+              <span aria-hidden="true">→</span>
             </Button>
           </div>
         </Reveal>
 
-        <Stagger className="grid gap-6 sm:grid-cols-3 lg:col-span-7 lg:grid-cols-1 lg:gap-5">
+        <Stagger className="grid gap-6 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-1 lg:gap-5">
           {pillars.map((pillar, i) => (
             <StaggerItem key={pillar.title}>
               <article className="relative border-l border-accent/40 pl-5 lg:pl-6">

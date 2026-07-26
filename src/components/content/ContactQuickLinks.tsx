@@ -17,14 +17,14 @@ const QUICK_LINKS = [
   },
   {
     href: "/about",
-    title: "About Saluvia",
-    description: "Manufacturing focus, values, and markets served.",
+    title: "About Saluvia Industries",
+    description: "Manufacturing focus, quality systems, and markets served.",
   },
 ];
 
 export function ContactQuickLinks() {
   return (
-    <section className="section-space border-t border-border bg-bg-elevated">
+    <section className="section-space-end border-t border-border bg-bg-elevated">
       <div className="container-site">
         <Reveal>
           <SectionHeading

@@ -15,9 +15,17 @@ export type CategoryFamilyItem = {
 
 export type CategoryShowcaseProps = {
   families: CategoryFamilyItem[];
+  eyebrow?: string;
+  title?: string;
+  support?: string;
 };
 
-export function CategoryShowcase({ families }: CategoryShowcaseProps) {
+export function CategoryShowcase({
+  families,
+  eyebrow = "Featured product families",
+  title = "Featured Product Families",
+  support = "Explore major instrument lines — bipolar forceps, electrodes, pencils, cables, and gynecology instruments — then drill into detailed categories.",
+}: CategoryShowcaseProps) {
   if (!families.length) return null;
 
   return (
@@ -30,17 +38,16 @@ export function CategoryShowcase({ families }: CategoryShowcaseProps) {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              Browse by family
+              {eyebrow}
             </p>
             <h2
               id="categories-heading"
               className="font-display mt-3 text-3xl font-semibold tracking-tight text-ink md:text-4xl"
             >
-              Product families
+              {title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-soft">
-              Explore major instrument lines — forceps, electrodes, cables, and
-              specialty sets — then drill into detailed categories.
+              {support}
             </p>
           </Reveal>
           <Reveal delay={0.08} className="shrink-0">

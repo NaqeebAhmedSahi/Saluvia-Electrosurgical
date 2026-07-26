@@ -19,21 +19,22 @@ const displayFont = Sora({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://saluvia.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://saluviaindustries.com",
   ),
   title: {
     default:
-      "Saluvia | Electrosurgical Instruments — Forceps, Electrodes & Cables",
-    template: "%s | Saluvia",
+      "Saluvia Industries | Electrosurgical Instruments Manufacturer — OEM & Global Supply",
+    template: "%s | Saluvia Industries",
   },
   description:
-    "Explore Saluvia electrosurgical instruments, including bipolar forceps, electrodes, cables, and specialty surgical products for professional buyers.",
+    "Saluvia Industries manufactures precision electrosurgical instruments in Pakistan — bipolar forceps, electrodes, pencils, cables, and specialty surgical tools for hospitals, distributors, and OEM partners. ISO 13485 & ISO 9001 certified.",
   openGraph: {
     type: "website",
-    siteName: "Saluvia",
-    title: "Saluvia | Precision Electrosurgical Instruments",
+    siteName: "Saluvia Industries",
+    title:
+      "Saluvia Industries | Precision Electrosurgical Instrument Manufacturer",
     description:
-      "A focused catalog of electrosurgical instruments for hospitals, clinics, and distributors.",
+      "B2B manufacturer of electrosurgical instruments for hospitals, medical distributors, and OEM partners worldwide. ISO-certified quality from Sialkot, Pakistan.",
   },
 };
 

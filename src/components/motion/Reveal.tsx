@@ -1,28 +1,39 @@
 "use client";
 
-import { motion, type MotionProps } from "framer-motion";
+import { motion, useReducedMotion, type MotionProps } from "framer-motion";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+const defaultViewport = {
+  once: true,
+  amount: 0.05,
+  margin: "0px 0px -40px 0px",
+} as const;
+
 export const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 14 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease },
+    transition: { duration: 0.4, ease },
   },
 };
 
 export const fadeIn = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { duration: 0.5, ease } },
+  show: { opacity: 1, transition: { duration: 0.35, ease } },
 };
 
 export const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.06 } },
+  show: { transition: { staggerChildren: 0.05, delayChildren: 0.02 } },
+};
+
+const fadeUpReduced = {
+  hidden: { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0, transition: { duration: 0 } },
 };
 
 export function Reveal({
@@ -35,20 +46,26 @@ export function Reveal({
   className?: string;
   delay?: number;
 } & MotionProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={cn(className)}
-      initial="hidden"
+      initial={reduceMotion ? false : "hidden"}
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={{
-        hidden: { opacity: 0, y: 24 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.6, ease, delay },
-        },
-      }}
+      viewport={defaultViewport}
+      variants={
+        reduceMotion
+          ? fadeUpReduced
+          : {
+              hidden: { opacity: 0, y: 12 },
+              show: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.4, ease, delay },
+              },
+            }
+      }
       {...props}
     >
       {children}
@@ -66,12 +83,18 @@ export function Stagger({
   // Use animate (not whileInView) so soft navigations — e.g. product
   // pagination — remount the grid already in-viewport and still reveal.
   // whileInView often never fires in that case, leaving cards at opacity 0.
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={cn(className)}
-      initial="hidden"
+      initial={reduceMotion ? false : "hidden"}
       animate="show"
-      variants={stagger}
+      variants={
+        reduceMotion
+          ? { hidden: {}, show: { transition: { duration: 0 } } }
+          : stagger
+      }
     >
       {children}
     </motion.div>
@@ -85,8 +108,13 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <motion.div className={cn("h-full", className)} variants={fadeUp}>
+    <motion.div
+      className={cn("h-full", className)}
+      variants={reduceMotion ? fadeUpReduced : fadeUp}
+    >
       {children}
     </motion.div>
   );

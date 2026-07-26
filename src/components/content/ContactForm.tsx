@@ -5,24 +5,26 @@ import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const INQUIRY_TYPES = [
-  "Quote",
-  "Sample",
-  "Distributor",
-  "Technical",
+const PRODUCT_CATEGORIES = [
+  "Bipolar Forceps",
+  "Monopolar Forceps",
+  "Electrosurgical Electrodes",
+  "Electrosurgical Pencils",
+  "Cables & Accessories",
+  "Gynecology Instruments",
+  "Arthroscopic Electrodes",
+  "OEM / Private Label",
   "Other",
 ] as const;
 
-type InquiryType = (typeof INQUIRY_TYPES)[number];
-
 type FormState = {
-  inquiryType: InquiryType | "";
-  organization: string;
   contactName: string;
-  jobTitle: string;
+  organization: string;
+  country: string;
   email: string;
   phone: string;
-  country: string;
+  jobTitle: string;
+  productCategory: string;
   productCodes: string;
   quantityTimeline: string;
   message: string;
@@ -30,13 +32,13 @@ type FormState = {
 };
 
 const initialState: FormState = {
-  inquiryType: "",
-  organization: "",
   contactName: "",
-  jobTitle: "",
+  organization: "",
+  country: "",
   email: "",
   phone: "",
-  country: "",
+  jobTitle: "",
+  productCategory: "",
   productCodes: "",
   quantityTimeline: "",
   message: "",
@@ -93,15 +95,11 @@ export function ContactForm() {
   function validate(): boolean {
     const next: Partial<Record<keyof FormState, string>> = {};
 
-    if (!form.inquiryType) next.inquiryType = "Select an inquiry type.";
-    if (!form.organization.trim())
-      next.organization = "Organization is required.";
-    if (!form.contactName.trim()) next.contactName = "Contact name is required.";
-    if (!form.email.trim()) next.email = "Email is required.";
+    if (!form.contactName.trim()) next.contactName = "Full name is required.";
+    if (!form.country.trim()) next.country = "Country is required.";
+    if (!form.email.trim()) next.email = "Email address is required.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
-      next.email = "Enter a valid work email.";
-    if (!form.phone.trim()) next.phone = "Phone (with country code) is required.";
-    if (!form.country.trim()) next.country = "Country / region is required.";
+      next.email = "Enter a valid email address.";
     if (!form.message.trim()) next.message = "Please include a brief message.";
     if (!form.consent) next.consent = "Consent is required to submit.";
     if (invalidCodes.length > 0) {
@@ -119,18 +117,22 @@ export function ContactForm() {
     setStatus("submitting");
     setSubmitError(null);
 
+    const category = form.productCategory.trim();
+    const inquiryType = category === "OEM / Private Label" ? "OEM" : "Quote";
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          inquiryType: form.inquiryType,
-          organization: form.organization.trim(),
+          inquiryType,
+          organization: form.organization.trim() || undefined,
           contactName: form.contactName.trim(),
           jobTitle: form.jobTitle.trim() || undefined,
           email: form.email.trim(),
-          phone: form.phone.trim(),
+          phone: form.phone.trim() || undefined,
           country: form.country.trim(),
+          productCategory: category || undefined,
           productCodes: form.productCodes.trim() || undefined,
           quantityTimeline: form.quantityTimeline.trim() || undefined,
           message: form.message.trim(),
@@ -168,14 +170,17 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-xl border border-border bg-bg-elevated p-6 shadow-md sm:p-8">
+    <div
+      id="inquiry"
+      className="scroll-mt-28 rounded-xl border border-border bg-bg-elevated p-6 shadow-md sm:p-8"
+    >
       <div className="mb-6">
         <h2 className="font-display text-2xl font-semibold text-ink">
-          B2B inquiry form
+          Send Us an Inquiry
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-          For hospitals, clinics, distributors, and OEM partners. Include product
-          codes when requesting a quote.
+          Fill out the contact form and our team will respond as soon as
+          possible.
         </p>
       </div>
 
@@ -192,9 +197,9 @@ export function ContactForm() {
               Inquiry received
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
-              Thank you. Our team will review your request and respond to{" "}
-              <span className="font-medium text-ink">your email</span>. Include
-              product codes on future inquiries for faster routing.
+              Thank you for contacting Saluvia Industries. Our team will review
+              your request and respond to your email, typically within one
+              business day.
             </p>
             <button
               type="button"
@@ -214,61 +219,16 @@ export function ContactForm() {
             noValidate
             className="grid gap-5 sm:grid-cols-2"
           >
-            <div className="sm:col-span-2">
-              <label htmlFor="inquiryType" className={labelClass}>
-                Inquiry type <span className="text-danger">*</span>
-              </label>
-              <select
-                id="inquiryType"
-                name="inquiryType"
-                value={form.inquiryType}
-                onChange={(e) =>
-                  update("inquiryType", e.target.value as InquiryType | "")
-                }
-                className={fieldClass}
-                aria-invalid={Boolean(errors.inquiryType)}
-              >
-                <option value="">Select type</option>
-                {INQUIRY_TYPES.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
-              {errors.inquiryType ? (
-                <p className="mt-1.5 text-xs text-danger">{errors.inquiryType}</p>
-              ) : null}
-            </div>
-
-            <div>
-              <label htmlFor="organization" className={labelClass}>
-                Organization <span className="text-danger">*</span>
-              </label>
-              <input
-                id="organization"
-                name="organization"
-                type="text"
-                autoComplete="organization"
-                placeholder="Hospital, clinic, or distributor"
-                value={form.organization}
-                onChange={(e) => update("organization", e.target.value)}
-                className={fieldClass}
-                aria-invalid={Boolean(errors.organization)}
-              />
-              {errors.organization ? (
-                <p className="mt-1.5 text-xs text-danger">{errors.organization}</p>
-              ) : null}
-            </div>
-
             <div>
               <label htmlFor="contactName" className={labelClass}>
-                Contact name <span className="text-danger">*</span>
+                Full Name <span className="text-danger">*</span>
               </label>
               <input
                 id="contactName"
                 name="contactName"
                 type="text"
                 autoComplete="name"
+                placeholder="Your full name"
                 value={form.contactName}
                 onChange={(e) => update("contactName", e.target.value)}
                 className={fieldClass}
@@ -280,29 +240,51 @@ export function ContactForm() {
             </div>
 
             <div>
-              <label htmlFor="jobTitle" className={labelClass}>
-                Job title
+              <label htmlFor="organization" className={labelClass}>
+                Company Name
               </label>
               <input
-                id="jobTitle"
-                name="jobTitle"
+                id="organization"
+                name="organization"
                 type="text"
-                autoComplete="organization-title"
-                value={form.jobTitle}
-                onChange={(e) => update("jobTitle", e.target.value)}
+                autoComplete="organization"
+                placeholder="Hospital, distributor, or OEM brand"
+                value={form.organization}
+                onChange={(e) => update("organization", e.target.value)}
                 className={fieldClass}
               />
             </div>
 
             <div>
+              <label htmlFor="country" className={labelClass}>
+                Country <span className="text-danger">*</span>
+              </label>
+              <input
+                id="country"
+                name="country"
+                type="text"
+                autoComplete="country-name"
+                placeholder="e.g. United States"
+                value={form.country}
+                onChange={(e) => update("country", e.target.value)}
+                className={fieldClass}
+                aria-invalid={Boolean(errors.country)}
+              />
+              {errors.country ? (
+                <p className="mt-1.5 text-xs text-danger">{errors.country}</p>
+              ) : null}
+            </div>
+
+            <div>
               <label htmlFor="email" className={labelClass}>
-                Work email <span className="text-danger">*</span>
+                Email Address <span className="text-danger">*</span>
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
+                placeholder="name@company.com"
                 value={form.email}
                 onChange={(e) => update("email", e.target.value)}
                 className={fieldClass}
@@ -315,46 +297,59 @@ export function ContactForm() {
 
             <div>
               <label htmlFor="phone" className={labelClass}>
-                Phone <span className="text-danger">*</span>
+                Phone Number
               </label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                placeholder="+1 … (include country code)"
+                placeholder="+92 … (include country code)"
                 value={form.phone}
                 onChange={(e) => update("phone", e.target.value)}
                 className={fieldClass}
-                aria-invalid={Boolean(errors.phone)}
               />
-              {errors.phone ? (
-                <p className="mt-1.5 text-xs text-danger">{errors.phone}</p>
-              ) : null}
             </div>
 
             <div>
-              <label htmlFor="country" className={labelClass}>
-                Country / region <span className="text-danger">*</span>
+              <label htmlFor="jobTitle" className={labelClass}>
+                Job Title
               </label>
               <input
-                id="country"
-                name="country"
+                id="jobTitle"
+                name="jobTitle"
                 type="text"
-                autoComplete="country-name"
-                value={form.country}
-                onChange={(e) => update("country", e.target.value)}
+                autoComplete="organization-title"
+                placeholder="e.g. Procurement Manager"
+                value={form.jobTitle}
+                onChange={(e) => update("jobTitle", e.target.value)}
                 className={fieldClass}
-                aria-invalid={Boolean(errors.country)}
               />
-              {errors.country ? (
-                <p className="mt-1.5 text-xs text-danger">{errors.country}</p>
-              ) : null}
+            </div>
+
+            <div>
+              <label htmlFor="productCategory" className={labelClass}>
+                Product Category
+              </label>
+              <select
+                id="productCategory"
+                name="productCategory"
+                value={form.productCategory}
+                onChange={(e) => update("productCategory", e.target.value)}
+                className={fieldClass}
+              >
+                <option value="">Select a category</option>
+                {PRODUCT_CATEGORIES.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>
               <label htmlFor="productCodes" className={labelClass}>
-                Product code(s)
+                Product Code(s)
               </label>
               <input
                 id="productCodes"
@@ -381,13 +376,13 @@ export function ContactForm() {
 
             <div className="sm:col-span-2">
               <label htmlFor="quantityTimeline" className={labelClass}>
-                Quantity / timeline
+                Estimated Quantity
               </label>
               <input
                 id="quantityTimeline"
                 name="quantityTimeline"
                 type="text"
-                placeholder="Estimated volume, delivery window, or tender date"
+                placeholder="Estimated volume or order size"
                 value={form.quantityTimeline}
                 onChange={(e) => update("quantityTimeline", e.target.value)}
                 className={fieldClass}
@@ -402,6 +397,7 @@ export function ContactForm() {
                 id="message"
                 name="message"
                 rows={5}
+                placeholder="Tell us about your requirements, quotation needs, or partnership interest"
                 value={form.message}
                 onChange={(e) => update("message", e.target.value)}
                 className={cn(fieldClass, "resize-y")}
@@ -423,8 +419,8 @@ export function ContactForm() {
                 />
                 <span>
                   I agree to be contacted regarding this inquiry and acknowledge
-                  that submitted details will be handled per Saluvia&apos;s
-                  privacy practices.{" "}
+                  that submitted details will be handled per Saluvia
+                  Industries&apos; privacy practices.{" "}
                   <span className="text-danger">*</span>
                 </span>
               </label>
@@ -433,17 +429,23 @@ export function ContactForm() {
               ) : null}
             </div>
 
-            <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-xs text-ink-muted">
-                Typical response window:{" "}
-                <span className="font-medium text-ink-soft">1–2 business days</span>
+            <div className="sm:col-span-2 rounded-lg border border-border/80 bg-bg px-4 py-4 sm:px-5">
+              <p className="font-display text-base font-semibold text-ink">
+                Ready to Get Started?
               </p>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                Send us your inquiry today. We typically respond within{" "}
+                <span className="font-medium text-ink">1 business day</span>.
+              </p>
+            </div>
+
+            <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
               <button
                 type="submit"
                 disabled={status === "submitting"}
                 className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-accent-bright disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status === "submitting" ? "Sending…" : "Submit inquiry"}
+                {status === "submitting" ? "Sending…" : "Submit Inquiry"}
               </button>
             </div>
 
