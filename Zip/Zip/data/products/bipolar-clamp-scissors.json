@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Bipolar Clamp Scissors",
+    "code": "110-825-15",
+    "url": "https://tecno.com.pk/product-detail/bipolar-clamp-scissors-110-825-15",
+    "category_name": "Bipolar Clamp Scissors",
+    "short_description": "Bipolar Clamp Scissors",
+    "variants": {
+      "Size": [
+        "6” (15.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-15/main_full.webp",
+      "medium": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-15/main_medium.webp",
+      "thumb": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-15/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-15-96858-1754975298.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-15-96858-1754975298_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-15-96858-1754975298_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Bipolar Clamp Scissors",
+        "code": "110-825-19",
+        "url": "https://tecno.com.pk/product-detail/bipolar-clamp-scissors-110-825-19"
+      }
+    ],
+    "category_slug": "bipolar-clamp-scissors",
+    "scraped_at": "2026-07-18T01:38:37"
+  },
+  {
+    "title": "Bipolar Clamp Scissors",
+    "code": "110-825-19",
+    "url": "https://tecno.com.pk/product-detail/bipolar-clamp-scissors-110-825-19",
+    "category_name": "Bipolar Clamp Scissors",
+    "short_description": "Bipolar Clamp Scissors",
+    "variants": {
+      "Size": [
+        "7½” (19.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-19/main_full.webp",
+      "medium": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-19/main_medium.webp",
+      "thumb": "images/bipolar-clamp-scissors/bipolar-clamp-scissors-110-825-19/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-19-42383-1754975375.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-19-42383-1754975375_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-clamp-scissors-110-825-19-42383-1754975375_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Bipolar Clamp Scissors",
+        "code": "110-825-15",
+        "url": "https://tecno.com.pk/product-detail/bipolar-clamp-scissors-110-825-15"
+      }
+    ],
+    "category_slug": "bipolar-clamp-scissors",
+    "scraped_at": "2026-07-18T01:38:42"
+  }
+]

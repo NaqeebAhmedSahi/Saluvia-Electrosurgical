@@ -1,0 +1,113 @@
+[
+  {
+    "title": "Bipolar Scissors (Curved)",
+    "code": "110-815-18",
+    "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-18",
+    "category_name": "Bipolar Scissors",
+    "short_description": "Bipolar Scissors (Crv)",
+    "variants": {
+      "Size": [
+        "7” (18.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-scissors/bipolar-scissors-curved-110-815-18/main_full.webp",
+      "medium": "images/bipolar-scissors/bipolar-scissors-curved-110-815-18/main_medium.webp",
+      "thumb": "images/bipolar-scissors/bipolar-scissors-curved-110-815-18/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-18-550289-1754974945.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-18-550289-1754974945_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-18-550289-1754974945_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-21",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-21"
+      },
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-23",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-23"
+      }
+    ],
+    "category_slug": "bipolar-scissors",
+    "scraped_at": "2026-07-18T01:38:23"
+  },
+  {
+    "title": "Bipolar Scissors (Curved)",
+    "code": "110-815-21",
+    "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-21",
+    "category_name": "Bipolar Scissors",
+    "short_description": "Bipolar Scissors (Crv)",
+    "variants": {
+      "Size": [
+        "8¼” (21.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-scissors/bipolar-scissors-curved-110-815-21/main_full.webp",
+      "medium": "images/bipolar-scissors/bipolar-scissors-curved-110-815-21/main_medium.webp",
+      "thumb": "images/bipolar-scissors/bipolar-scissors-curved-110-815-21/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-21-173801-1754975105.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-21-173801-1754975105_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-21-173801-1754975105_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-18",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-18"
+      },
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-23",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-23"
+      }
+    ],
+    "category_slug": "bipolar-scissors",
+    "scraped_at": "2026-07-18T01:38:27"
+  },
+  {
+    "title": "Bipolar Scissors (Curved)",
+    "code": "110-815-23",
+    "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-23",
+    "category_name": "Bipolar Scissors",
+    "short_description": "Bipolar Scissors (Crv.)",
+    "variants": {
+      "Size": [
+        "9” (23.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-scissors/bipolar-scissors-curved-110-815-23/main_full.webp",
+      "medium": "images/bipolar-scissors/bipolar-scissors-curved-110-815-23/main_medium.webp",
+      "thumb": "images/bipolar-scissors/bipolar-scissors-curved-110-815-23/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-23-553850-1754975169.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-23-553850-1754975169_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-scissors-curved-110-815-23-553850-1754975169_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-18",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-18"
+      },
+      {
+        "title": "Bipolar Scissors (Curved)",
+        "code": "110-815-21",
+        "url": "https://tecno.com.pk/product-detail/bipolar-scissors-curved-110-815-21"
+      }
+    ],
+    "category_slug": "bipolar-scissors",
+    "scraped_at": "2026-07-18T01:38:32"
+  }
+]

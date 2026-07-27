@@ -1,0 +1,118 @@
+/**
+ * Saluvia Design System — SINGLE SOURCE OF TRUTH
+ * Change colors, fonts, radii, shadows HERE only.
+ * All pages inherit via CSS variables + Tailwind @theme tokens.
+ */
+
+:root {
+  /* Brand */
+  --brand: #0b3d4a;
+  --brand-deep: #072a33;
+  --brand-soft: #124f5f;
+  --accent: #1a9b8e;
+  --accent-bright: #2cb8a9;
+  --accent-muted: #d5f0ec;
+
+  /* Surfaces */
+  --bg: #eef3f5;
+  --bg-elevated: #ffffff;
+  --bg-muted: #e2eaee;
+  --bg-tint: #dce9eb;
+
+  /* Ink */
+  --ink: #14232a;
+  --ink-soft: #3d5159;
+  --ink-muted: #6a7d85;
+  --ink-inverse: #f5fafb;
+
+  /* Borders & focus */
+  --border: #c5d4da;
+  --border-strong: #9fb3bb;
+  --ring: #1a9b8e;
+
+  /* Semantic */
+  --success: #1f7a4c;
+  --warning: #b07a12;
+  --danger: #b33a3a;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(
+    135deg,
+    #072a33 0%,
+    #0b3d4a 42%,
+    #136675 78%,
+    #1a9b8e 100%
+  );
+  --gradient-mist: radial-gradient(
+    ellipse 80% 60% at 10% 0%,
+    rgba(26, 155, 142, 0.14),
+    transparent 55%
+  ),
+    radial-gradient(
+      ellipse 70% 50% at 90% 10%,
+      rgba(11, 61, 74, 0.1),
+      transparent 50%
+    ),
+    var(--bg);
+  --gradient-band: linear-gradient(90deg, #0b3d4a, #1a9b8e);
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(11, 61, 74, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 61, 74, 0.1);
+  --shadow-lg: 0 20px 50px rgba(7, 42, 51, 0.16);
+
+  /* Shape */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;
+  --duration-med: 420ms;
+  --duration-slow: 700ms;
+
+  /* Layout */
+  --container: 72rem;
+  --header-h: 4.25rem;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-muted: var(--accent-muted);
+
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-muted: var(--bg-muted);
+  --color-bg-tint: var(--bg-tint);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-inverse: var(--ink-inverse);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+}

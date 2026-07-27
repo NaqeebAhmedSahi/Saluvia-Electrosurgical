@@ -1,0 +1,519 @@
+[
+  {
+    "title": "Straight",
+    "code": "310-500",
+    "url": "https://tecno.com.pk/product-detail/straight-310-500",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Straight",
+    "variants": {
+      "Size": [
+        "16 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/straight-310-500/main_full.webp",
+      "medium": "images/bipolar-electrodes/straight-310-500/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/straight-310-500/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/straight-310-500-230016-1755239035.webp",
+        "medium": "https://tecno.com.pk/uploads/products/straight-310-500-230016-1755239035_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/straight-310-500-230016-1755239035_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      },
+      {
+        "title": "Angled 45°",
+        "code": "310-590",
+        "url": "https://tecno.com.pk/product-detail/angled-45-310-590"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:13"
+  },
+  {
+    "title": "Angled (Upward Tip)",
+    "code": "310-570",
+    "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Straight",
+    "variants": {
+      "Size": [
+        "20.0 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/angled-upward-tip-310-570/main_full.webp",
+      "medium": "images/bipolar-electrodes/angled-upward-tip-310-570/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/angled-upward-tip-310-570/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/angled-upward-tip-310-570-181960-1755239178.webp",
+        "medium": "https://tecno.com.pk/uploads/products/angled-upward-tip-310-570-181960-1755239178_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/angled-upward-tip-310-570-181960-1755239178_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      },
+      {
+        "title": "Angled 45°",
+        "code": "310-590",
+        "url": "https://tecno.com.pk/product-detail/angled-45-310-590"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:18"
+  },
+  {
+    "title": "Angled",
+    "code": "310-540",
+    "url": "https://tecno.com.pk/product-detail/angled-310-540",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Angled",
+    "variants": {
+      "Size": [
+        "18.0 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/angled-310-540/main_full.webp",
+      "medium": "images/bipolar-electrodes/angled-310-540/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/angled-310-540/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/angled-310-540-946039-1755253947.webp",
+        "medium": "https://tecno.com.pk/uploads/products/angled-310-540-946039-1755253947_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/angled-310-540-946039-1755253947_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      },
+      {
+        "title": "Angled 45°",
+        "code": "310-590",
+        "url": "https://tecno.com.pk/product-detail/angled-45-310-590"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:22"
+  },
+  {
+    "title": "Angled 90°",
+    "code": "310-600",
+    "url": "https://tecno.com.pk/product-detail/angled-90-310-600",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Angled 90°",
+    "variants": {
+      "Size": [
+        "16 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/angled-90-310-600/main_full.webp",
+      "medium": "images/bipolar-electrodes/angled-90-310-600/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/angled-90-310-600/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/angled-90-310-600-687162-1755254043.webp",
+        "medium": "https://tecno.com.pk/uploads/products/angled-90-310-600-687162-1755254043_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/angled-90-310-600-687162-1755254043_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 45°",
+        "code": "310-590",
+        "url": "https://tecno.com.pk/product-detail/angled-45-310-590"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:26"
+  },
+  {
+    "title": "Angled 45°",
+    "code": "310-590",
+    "url": "https://tecno.com.pk/product-detail/angled-45-310-590",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Angled 45°",
+    "variants": {
+      "Size": [
+        "19 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/angled-45-310-590/main_full.webp",
+      "medium": "images/bipolar-electrodes/angled-45-310-590/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/angled-45-310-590/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/angled-45-310-590-500080-1755254111.webp",
+        "medium": "https://tecno.com.pk/uploads/products/angled-45-310-590-500080-1755254111_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/angled-45-310-590-500080-1755254111_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:31"
+  },
+  {
+    "title": "Bipolar Eraser",
+    "code": "110-712-18",
+    "url": "https://tecno.com.pk/product-detail/bipolar-eraser-110-712-18",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bipolar Eraser (18 Ga) Tapered Tip",
+    "variants": {
+      "Size": [
+        "11.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bipolar-eraser-110-712-18/main_full.webp",
+      "medium": "images/bipolar-electrodes/bipolar-eraser-110-712-18/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bipolar-eraser-110-712-18/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-eraser-110-712-18-370522-1755254644.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-eraser-110-712-18-370522-1755254644_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-eraser-110-712-18-370522-1755254644_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:35"
+  },
+  {
+    "title": "Bipolar Eraser (Single-Use)",
+    "code": "210-710-18",
+    "url": "https://tecno.com.pk/product-detail/bipolar-eraser-single-use-210-710-18",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bipolar Eraser (18 Ga) Flat Tip",
+    "variants": {
+      "Size": [
+        "11.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bipolar-eraser-single-use-210-710-18/main_full.webp",
+      "medium": "images/bipolar-electrodes/bipolar-eraser-single-use-210-710-18/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bipolar-eraser-single-use-210-710-18/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bipolar-eraser-single-use-210-710-18-89331-1755254707.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bipolar-eraser-single-use-210-710-18-89331-1755254707_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bipolar-eraser-single-use-210-710-18-89331-1755254707_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:39"
+  },
+  {
+    "title": "Bi-Turbinate Probe",
+    "code": "110-700",
+    "url": "https://tecno.com.pk/product-detail/bi-turbinate-probe-110-700",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bi-Turbinate Probe",
+    "variants": {
+      "Size": [
+        "17.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bi-turbinate-probe-110-700/main_full.webp",
+      "medium": "images/bipolar-electrodes/bi-turbinate-probe-110-700/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bi-turbinate-probe-110-700/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-110-700-918574-1755254767.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-110-700-918574-1755254767_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-110-700-918574-1755254767_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:44"
+  },
+  {
+    "title": "Bi-Turbinate Probe (Single-Use)",
+    "code": "210-700",
+    "url": "https://tecno.com.pk/product-detail/bi-turbinate-probe-single-use-210-700",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bi-Turbinate Probe (Single-Use)",
+    "variants": {
+      "Size": [
+        "17.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bi-turbinate-probe-single-use-210-700/main_full.webp",
+      "medium": "images/bipolar-electrodes/bi-turbinate-probe-single-use-210-700/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bi-turbinate-probe-single-use-210-700/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-210-700-387067-1755254811.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-210-700-387067-1755254811_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-210-700-387067-1755254811_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:49"
+  },
+  {
+    "title": "Bi-Turbinate Probe",
+    "code": "310-700",
+    "url": "https://tecno.com.pk/product-detail/bi-turbinate-probe-310-700",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bi-Turbinate Probe",
+    "variants": {
+      "Size": [
+        "19.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bi-turbinate-probe-310-700/main_full.webp",
+      "medium": "images/bipolar-electrodes/bi-turbinate-probe-310-700/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bi-turbinate-probe-310-700/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-310-700-449484-1755254854.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-310-700-449484-1755254854_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-310-700-449484-1755254854_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:53"
+  },
+  {
+    "title": "Bi-Turbinate Probe (Single-Use)",
+    "code": "410-700",
+    "url": "https://tecno.com.pk/product-detail/bi-turbinate-probe-single-use-410-700",
+    "category_name": "Bipolar Electrodes",
+    "short_description": "Bi-Turbinate Probe (Single-Use)",
+    "variants": {
+      "Size": [
+        "19.5 cm"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-electrodes/bi-turbinate-probe-single-use-410-700/main_full.webp",
+      "medium": "images/bipolar-electrodes/bi-turbinate-probe-single-use-410-700/main_medium.webp",
+      "thumb": "images/bipolar-electrodes/bi-turbinate-probe-single-use-410-700/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-410-700-578839-1755254894.webp",
+        "medium": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-410-700-578839-1755254894_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/bi-turbinate-probe-single-use-410-700-578839-1755254894_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Straight",
+        "code": "310-500",
+        "url": "https://tecno.com.pk/product-detail/straight-310-500"
+      },
+      {
+        "title": "Angled (Upward Tip)",
+        "code": "310-570",
+        "url": "https://tecno.com.pk/product-detail/angled-upward-tip-310-570"
+      },
+      {
+        "title": "Angled",
+        "code": "310-540",
+        "url": "https://tecno.com.pk/product-detail/angled-310-540"
+      },
+      {
+        "title": "Angled 90°",
+        "code": "310-600",
+        "url": "https://tecno.com.pk/product-detail/angled-90-310-600"
+      }
+    ],
+    "category_slug": "bipolar-electrodes",
+    "scraped_at": "2026-07-18T01:41:57"
+  }
+]

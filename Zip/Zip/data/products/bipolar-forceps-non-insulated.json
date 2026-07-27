@@ -1,0 +1,309 @@
+[
+  {
+    "title": "Jeweler #5",
+    "code": "120-140",
+    "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "Jeweler #5",
+    "variants": {
+      "Tip": [
+        "0.5 mm",
+        "Micro"
+      ],
+      "Size": [
+        "4½” (11.5 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/jeweler-5-120-140/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/jeweler-5-120-140/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/jeweler-5-120-140/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/jeweler-5-120-140-837464-1754721610.webp",
+        "medium": "https://tecno.com.pk/uploads/products/jeweler-5-120-140-837464-1754721610_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/jeweler-5-120-140-837464-1754721610_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Adson",
+        "code": "120-200",
+        "url": "https://tecno.com.pk/product-detail/adson-120-200"
+      },
+      {
+        "title": "Malis (Straight)",
+        "code": "120-148",
+        "url": "https://tecno.com.pk/product-detail/malis-straight-120-148"
+      },
+      {
+        "title": "Semkin",
+        "code": "120-220",
+        "url": "https://tecno.com.pk/product-detail/semkin-120-220"
+      },
+      {
+        "title": "Malis",
+        "code": "120-400",
+        "url": "https://tecno.com.pk/product-detail/malis-120-400"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:23"
+  },
+  {
+    "title": "Adson",
+    "code": "120-200",
+    "url": "https://tecno.com.pk/product-detail/adson-120-200",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "Adson",
+    "variants": {
+      "Tip": [
+        "1.0 mm"
+      ],
+      "Size": [
+        "4¾” (12.1 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/adson-120-200/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/adson-120-200/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/adson-120-200/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/adson-120-200-455553-1754721670.webp",
+        "medium": "https://tecno.com.pk/uploads/products/adson-120-200-455553-1754721670_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/adson-120-200-455553-1754721670_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Jeweler #5",
+        "code": "120-140",
+        "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140"
+      },
+      {
+        "title": "Malis (Straight)",
+        "code": "120-148",
+        "url": "https://tecno.com.pk/product-detail/malis-straight-120-148"
+      },
+      {
+        "title": "Semkin",
+        "code": "120-220",
+        "url": "https://tecno.com.pk/product-detail/semkin-120-220"
+      },
+      {
+        "title": "Malis",
+        "code": "120-400",
+        "url": "https://tecno.com.pk/product-detail/malis-120-400"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:27"
+  },
+  {
+    "title": "Malis (Straight)",
+    "code": "120-148",
+    "url": "https://tecno.com.pk/product-detail/malis-straight-120-148",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "Malis (Str.)",
+    "variants": {
+      "Tip": [
+        "0.5 mm",
+        "Micro"
+      ],
+      "Size": [
+        "6” (15.2 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/malis-straight-120-148/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/malis-straight-120-148/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/malis-straight-120-148/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/malis-straight-120-148-113665-1754721742.webp",
+        "medium": "https://tecno.com.pk/uploads/products/malis-straight-120-148-113665-1754721742_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/malis-straight-120-148-113665-1754721742_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Jeweler #5",
+        "code": "120-140",
+        "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140"
+      },
+      {
+        "title": "Adson",
+        "code": "120-200",
+        "url": "https://tecno.com.pk/product-detail/adson-120-200"
+      },
+      {
+        "title": "Semkin",
+        "code": "120-220",
+        "url": "https://tecno.com.pk/product-detail/semkin-120-220"
+      },
+      {
+        "title": "Malis",
+        "code": "120-400",
+        "url": "https://tecno.com.pk/product-detail/malis-120-400"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:34"
+  },
+  {
+    "title": "Semkin",
+    "code": "120-220",
+    "url": "https://tecno.com.pk/product-detail/semkin-120-220",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "Semkin",
+    "variants": {
+      "Tip": [
+        "0.5 mm",
+        "0.7mm"
+      ],
+      "Size": [
+        "5½” (14.0 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/semkin-120-220/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/semkin-120-220/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/semkin-120-220/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/semkin-120-220-384973-1754721789.webp",
+        "medium": "https://tecno.com.pk/uploads/products/semkin-120-220-384973-1754721789_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/semkin-120-220-384973-1754721789_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Jeweler #5",
+        "code": "120-140",
+        "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140"
+      },
+      {
+        "title": "Adson",
+        "code": "120-200",
+        "url": "https://tecno.com.pk/product-detail/adson-120-200"
+      },
+      {
+        "title": "Malis (Straight)",
+        "code": "120-148",
+        "url": "https://tecno.com.pk/product-detail/malis-straight-120-148"
+      },
+      {
+        "title": "Malis",
+        "code": "120-400",
+        "url": "https://tecno.com.pk/product-detail/malis-120-400"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:39"
+  },
+  {
+    "title": "Malis",
+    "code": "120-400",
+    "url": "https://tecno.com.pk/product-detail/malis-120-400",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "120-400",
+    "variants": {
+      "Tip": [
+        "0.5 mm",
+        "1.0 mm",
+        "2.0 mm"
+      ],
+      "Size": [
+        "7” (17.8 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/malis-120-400/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/malis-120-400/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/malis-120-400/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/malis-120-400-155127-1754721865.webp",
+        "medium": "https://tecno.com.pk/uploads/products/malis-120-400-155127-1754721865_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/malis-120-400-155127-1754721865_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Jeweler #5",
+        "code": "120-140",
+        "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140"
+      },
+      {
+        "title": "Adson",
+        "code": "120-200",
+        "url": "https://tecno.com.pk/product-detail/adson-120-200"
+      },
+      {
+        "title": "Malis (Straight)",
+        "code": "120-148",
+        "url": "https://tecno.com.pk/product-detail/malis-straight-120-148"
+      },
+      {
+        "title": "Semkin",
+        "code": "120-220",
+        "url": "https://tecno.com.pk/product-detail/semkin-120-220"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:43"
+  },
+  {
+    "title": "Hardy Bayonet",
+    "code": "120-460",
+    "url": "https://tecno.com.pk/product-detail/hardy-bayonet-120-460",
+    "category_name": "Bipolar Forceps (Non-Insulated)",
+    "short_description": "Hardy Bayonet",
+    "variants": {
+      "Tip": [
+        "1.0 mm",
+        "2.0 mm",
+        "1.5mm"
+      ],
+      "Size": [
+        "8½” (21.6 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/bipolar-forceps-non-insulated/hardy-bayonet-120-460/main_full.webp",
+      "medium": "images/bipolar-forceps-non-insulated/hardy-bayonet-120-460/main_medium.webp",
+      "thumb": "images/bipolar-forceps-non-insulated/hardy-bayonet-120-460/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/hardy-bayonet-120-460-468012-1754721912.webp",
+        "medium": "https://tecno.com.pk/uploads/products/hardy-bayonet-120-460-468012-1754721912_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/hardy-bayonet-120-460-468012-1754721912_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Jeweler #5",
+        "code": "120-140",
+        "url": "https://tecno.com.pk/product-detail/jeweler-5-120-140"
+      },
+      {
+        "title": "Adson",
+        "code": "120-200",
+        "url": "https://tecno.com.pk/product-detail/adson-120-200"
+      },
+      {
+        "title": "Malis (Straight)",
+        "code": "120-148",
+        "url": "https://tecno.com.pk/product-detail/malis-straight-120-148"
+      },
+      {
+        "title": "Semkin",
+        "code": "120-220",
+        "url": "https://tecno.com.pk/product-detail/semkin-120-220"
+      }
+    ],
+    "category_slug": "bipolar-forceps-non-insulated",
+    "scraped_at": "2026-07-18T01:18:48"
+  }
+]

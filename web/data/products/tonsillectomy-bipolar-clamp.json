@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Tonsillectomy Bipolar Clamp",
+    "code": "110-770",
+    "url": "https://tecno.com.pk/product-detail/tonsillectomy-bipolar-clamp-110-770",
+    "category_name": "Tonsillectomy Bipolar Clamp",
+    "short_description": "Tonsillectomy Bipolar Clamp",
+    "variants": {
+      "Size": [
+        "7¼” (18.5 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-110-770/main_full.webp",
+      "medium": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-110-770/main_medium.webp",
+      "thumb": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-110-770/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-110-770-810579-1754975566.webp",
+        "medium": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-110-770-810579-1754975566_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-110-770-810579-1754975566_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Tonsillectomy Bipolar Clamp (Single-Use)",
+        "code": "210-770",
+        "url": "https://tecno.com.pk/product-detail/tonsillectomy-bipolar-clamp-single-use-210-770"
+      }
+    ],
+    "category_slug": "tonsillectomy-bipolar-clamp",
+    "scraped_at": "2026-07-18T01:38:48"
+  },
+  {
+    "title": "Tonsillectomy Bipolar Clamp (Single-Use)",
+    "code": "210-770",
+    "url": "https://tecno.com.pk/product-detail/tonsillectomy-bipolar-clamp-single-use-210-770",
+    "category_name": "Tonsillectomy Bipolar Clamp",
+    "short_description": "Tonsillectomy Bipolar Clamp (Single-Use)",
+    "variants": {
+      "Size": [
+        "7¼” (18.5 cm)"
+      ]
+    },
+    "note": "",
+    "images": {
+      "full": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-single-use-210-770/main_full.webp",
+      "medium": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-single-use-210-770/main_medium.webp",
+      "thumb": "images/tonsillectomy-bipolar-clamp/tonsillectomy-bipolar-clamp-single-use-210-770/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-single-use-210-770-834106-1754975675.webp",
+        "medium": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-single-use-210-770-834106-1754975675_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/tonsillectomy-bipolar-clamp-single-use-210-770-834106-1754975675_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Tonsillectomy Bipolar Clamp",
+        "code": "110-770",
+        "url": "https://tecno.com.pk/product-detail/tonsillectomy-bipolar-clamp-110-770"
+      }
+    ],
+    "category_slug": "tonsillectomy-bipolar-clamp",
+    "scraped_at": "2026-07-18T01:38:52"
+  }
+]

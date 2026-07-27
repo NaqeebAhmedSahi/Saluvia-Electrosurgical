@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Polypectomy Snare",
+    "code": "152-500",
+    "url": "https://tecno.com.pk/product-detail/polypectomy-snare-152-500",
+    "category_name": "Polypectomy Snare",
+    "short_description": "",
+    "variants": {},
+    "note": "",
+    "images": {
+      "full": "images/polypectomy-snare/polypectomy-snare-152-500/main_full.webp",
+      "medium": "images/polypectomy-snare/polypectomy-snare-152-500/main_medium.webp",
+      "thumb": "images/polypectomy-snare/polypectomy-snare-152-500/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/polypectomy-snare-152-500-232766-1754976577.webp",
+        "medium": "https://tecno.com.pk/uploads/products/polypectomy-snare-152-500-232766-1754976577_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/polypectomy-snare-152-500-232766-1754976577_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Polypectomy Snare (Single-Use)",
+        "code": "150-500",
+        "url": "https://tecno.com.pk/product-detail/polypectomy-snare-single-use-150-500"
+      }
+    ],
+    "category_slug": "polypectomy-snare",
+    "scraped_at": "2026-07-18T01:39:25"
+  },
+  {
+    "title": "Polypectomy Snare (Single-Use)",
+    "code": "150-500",
+    "url": "https://tecno.com.pk/product-detail/polypectomy-snare-single-use-150-500",
+    "category_name": "Polypectomy Snare",
+    "short_description": "",
+    "variants": {},
+    "note": "",
+    "images": {
+      "full": "images/polypectomy-snare/polypectomy-snare-single-use-150-500/main_full.webp",
+      "medium": "images/polypectomy-snare/polypectomy-snare-single-use-150-500/main_medium.webp",
+      "thumb": "images/polypectomy-snare/polypectomy-snare-single-use-150-500/thumb.webp",
+      "source_urls": {
+        "full": "https://tecno.com.pk/uploads/products/polypectomy-snare-single-use-150-500-573688-1754976894.webp",
+        "medium": "https://tecno.com.pk/uploads/products/polypectomy-snare-single-use-150-500-573688-1754976894_md.webp",
+        "thumb": "https://tecno.com.pk/uploads/products/polypectomy-snare-single-use-150-500-573688-1754976894_sm.webp"
+      }
+    },
+    "related_products": [
+      {
+        "title": "Polypectomy Snare",
+        "code": "152-500",
+        "url": "https://tecno.com.pk/product-detail/polypectomy-snare-152-500"
+      }
+    ],
+    "category_slug": "polypectomy-snare",
+    "scraped_at": "2026-07-18T01:39:29"
+  }
+]
