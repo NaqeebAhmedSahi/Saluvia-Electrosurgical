@@ -2,9 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Local catalog images are WebP files under /public/images (junction)
-    unoptimized: false,
-    formats: ["image/webp", "image/avif"],
+    // Serve /public assets directly. Vercel Hobby Image Optimization returns
+    // 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED once the monthly quota is
+    // hit; catalog assets are already WebP so the optimizer is optional.
+    unoptimized: true,
   },
   // Never treat /data as a static asset root; catalog JSON is server-only.
   async headers() {
