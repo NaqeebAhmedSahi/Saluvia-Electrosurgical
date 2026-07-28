@@ -6,12 +6,6 @@ import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const defaultViewport = {
-  once: true,
-  amount: 0.05,
-  margin: "0px 0px -40px 0px",
-} as const;
-
 export const fadeUp = {
   hidden: { opacity: 0, y: 14 },
   show: {
@@ -48,12 +42,15 @@ export function Reveal({
 } & MotionProps) {
   const reduceMotion = useReducedMotion();
 
+  // Use animate (not whileInView) so soft navigations — e.g. product
+  // detail from catalog — remount already in-viewport and still reveal.
+  // whileInView often never fires in that case, leaving content at opacity 0
+  // (notably the PDP hero image on mobile).
   return (
     <motion.div
       className={cn(className)}
       initial={reduceMotion ? false : "hidden"}
-      whileInView="show"
-      viewport={defaultViewport}
+      animate="show"
       variants={
         reduceMotion
           ? fadeUpReduced

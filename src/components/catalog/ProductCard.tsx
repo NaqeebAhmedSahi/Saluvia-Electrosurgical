@@ -35,7 +35,8 @@ export function ProductCard({
         className="absolute inset-0 z-0 focus-visible:outline-none"
       />
 
-      <div className="relative isolate z-0 aspect-square shrink-0 overflow-hidden bg-white">
+      {/* pointer-events-none so clicks reach the stretched Link underneath */}
+      <div className="pointer-events-none relative isolate z-0 aspect-square shrink-0 overflow-hidden bg-white">
         <Image
           src={
             product.images.full ||
@@ -48,12 +49,12 @@ export function ProductCard({
           priority={priority}
           className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
         />
-        <span className="pointer-events-none absolute left-3 top-3 z-10 max-w-[calc(100%-1.5rem)] truncate rounded-sm border border-border bg-bg-elevated px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand shadow-sm">
+        <span className="absolute left-3 top-3 z-10 max-w-[calc(100%-1.5rem)] truncate rounded-sm border border-border bg-bg-elevated px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand shadow-sm">
           {product.category_name}
         </span>
       </div>
 
-      <div className="relative z-0 flex min-h-0 flex-1 flex-col p-4 sm:p-5">
+      <div className="pointer-events-none relative z-0 flex min-h-0 flex-1 flex-col p-4 sm:p-5">
         <span className="mb-2 w-fit rounded-sm bg-accent-muted px-2 py-0.5 text-[11px] font-bold tracking-[0.08em] text-brand">
           {product.code}
         </span>
@@ -73,7 +74,7 @@ export function ProductCard({
           {summary ?? "\u00A0"}
         </p>
 
-        {/* Above stretched link so Add to cart receives the click */}
+        {/* Above stretched link; only Add to cart re-enables pointer events */}
         <div className="relative z-10 mt-auto flex items-center justify-between gap-3 pt-4">
           <span className="whitespace-nowrap text-xs font-semibold text-brand">
             View specs
@@ -84,7 +85,11 @@ export function ProductCard({
               →
             </span>
           </span>
-          <AddToCartButton product={product} size="sm" className="shrink-0" />
+          <AddToCartButton
+            product={product}
+            size="sm"
+            className="pointer-events-auto shrink-0"
+          />
         </div>
       </div>
     </article>
