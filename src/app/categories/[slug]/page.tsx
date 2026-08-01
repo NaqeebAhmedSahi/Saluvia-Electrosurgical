@@ -18,6 +18,11 @@ import {
   sortProducts,
   type SearchParamsInput,
 } from "@/components/catalog/catalog-utils";
+import {
+  catalogCanonical,
+  catalogListRobots,
+  isFilteredCatalogQuery,
+} from "@/lib/catalog-seo";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { JsonLd } from "@/components/catalog/JsonLd";
 import { PageHeader } from "@/components/catalog/PageHeader";
@@ -36,16 +41,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+  searchParams,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const query = await searchParams;
   const category = findCategory(slug);
   if (!category) return { title: "Category not found" };
   const count = productsInCategory(slug).length || category.total_products;
+  const filtered = isFilteredCatalogQuery(query);
+
   return {
     title: category.name,
     description: categoryMetaDescription(category, count),
+    robots: catalogListRobots(filtered),
+    alternates: {
+      canonical: catalogCanonical(`/categories/${slug}`),
+    },
   };
 }
 

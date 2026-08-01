@@ -11,6 +11,7 @@ import {
   relatedFor,
   SITE_URL,
 } from "@/components/catalog/catalog-utils";
+import { catalogCanonical } from "@/lib/catalog-seo";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { JsonLd } from "@/components/catalog/JsonLd";
 import { ProductCard } from "@/components/catalog/ProductCard";
@@ -40,6 +41,11 @@ export async function generateMetadata({
   return {
     title: `${product.title} (${product.code}) | ${product.category_name}`,
     description: productMetaDescription(product),
+    alternates: {
+      canonical: catalogCanonical(
+        `/products/${encodeURIComponent(product.code)}`,
+      ),
+    },
     openGraph: {
       title: `${product.title} (${product.code})`,
       description: productMetaDescription(product),

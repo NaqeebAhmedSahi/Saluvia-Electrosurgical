@@ -22,6 +22,11 @@ import {
   totalProductCount,
   type SearchParamsInput,
 } from "@/components/catalog/catalog-utils";
+import {
+  catalogCanonical,
+  catalogListRobots,
+  isFilteredCatalogQuery,
+} from "@/lib/catalog-seo";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { JsonLd } from "@/components/catalog/JsonLd";
 import { PageHeader } from "@/components/catalog/PageHeader";
@@ -33,12 +38,25 @@ type PageProps = {
   searchParams: Promise<SearchParamsInput>;
 };
 
-export const metadata: Metadata = {
-  title: "Electrosurgical Instruments Catalog",
-  description: clampText(
-    "Browse the Saluvia electrosurgical instruments catalog — forceps, electrodes, cables, and specialty surgical products with product codes for B2B quoting.",
-  ),
-};
+const PRODUCTS_DESCRIPTION = clampText(
+  "Browse the Saluvia electrosurgical instruments catalog — forceps, electrodes, cables, and specialty surgical products with product codes for B2B quoting.",
+);
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const query = await searchParams;
+  const filtered = isFilteredCatalogQuery(query);
+
+  return {
+    title: "Electrosurgical Instruments Catalog",
+    description: PRODUCTS_DESCRIPTION,
+    robots: catalogListRobots(filtered),
+    alternates: {
+      canonical: catalogCanonical("/products"),
+    },
+  };
+}
 
 export default async function ProductsPage({ searchParams }: PageProps) {
   const query = await searchParams;
@@ -84,7 +102,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Electrosurgical Instruments Catalog",
-    description: metadata.description,
+    description: PRODUCTS_DESCRIPTION,
   };
 
   return (
