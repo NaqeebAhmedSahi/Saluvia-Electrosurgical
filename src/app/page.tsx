@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CATEGORY_FAMILIES,
   getCategories,
@@ -13,6 +14,23 @@ import { Solutions } from "@/components/home/Solutions";
 import { Quality } from "@/components/home/Quality";
 import { QuoteBand } from "@/components/home/QuoteBand";
 import { SITE_EMAILS, SITE_PHONE } from "@/lib/site-contact";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute:
+      "Saluvia Industries | Electrosurgical Instruments Manufacturer — OEM & Global Supply",
+  },
+  description:
+    "Precision electrosurgical instruments manufactured in Pakistan for hospitals, OEM partners, and medical distributors worldwide. Bipolar forceps, electrodes, pencils, and cables — ISO 13485 & ISO 9001 certified.",
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    title: "Saluvia Industries | Electrosurgical Instruments Manufacturer",
+    description:
+      "ISO-certified electrosurgical instrument manufacturer for hospitals, distributors, and OEM partners worldwide.",
+    url: SITE_URL,
+  },
+};
 
 const HERO_SLIDES = [
   {

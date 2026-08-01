@@ -73,7 +73,12 @@ export default async function ProductDetailPage({ params }: PageProps) {
     image: [`${SITE_URL}${product.images.full || product.images.medium}`],
     brand: {
       "@type": "Brand",
-      name: "Saluvia",
+      name: "Saluvia Industries",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Saluvia Industries",
+      url: SITE_URL,
     },
     category: product.category_name,
     offers: {
@@ -81,7 +86,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       url: `${SITE_URL}/products/${encodeURIComponent(product.code)}`,
       availability: "https://schema.org/InStock",
       priceCurrency: "USD",
-      price: "0",
+      // B2B quote model — omit fake $0 price (hurts Product rich results)
       description: "Price on request — B2B inquiry",
     },
   };

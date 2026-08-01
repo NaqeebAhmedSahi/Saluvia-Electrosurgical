@@ -23,6 +23,7 @@ import {
   catalogListRobots,
   isFilteredCatalogQuery,
 } from "@/lib/catalog-seo";
+import { SITE_URL } from "@/lib/site";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { JsonLd } from "@/components/catalog/JsonLd";
 import { PageHeader } from "@/components/catalog/PageHeader";
@@ -91,6 +92,7 @@ export default async function CategoryDetailPage({
     "@type": "CollectionPage",
     name: category.name,
     description: categoryMetaDescription(category, paged.total),
+    url: `${SITE_URL}/categories/${slug}`,
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: paged.total,
@@ -98,7 +100,7 @@ export default async function CategoryDetailPage({
         "@type": "ListItem",
         position: (paged.page - 1) * 24 + index + 1,
         name: `${product.title} (${product.code})`,
-        url: `/products/${encodeURIComponent(product.code)}`,
+        url: `${SITE_URL}/products/${encodeURIComponent(product.code)}`,
       })),
     },
   };

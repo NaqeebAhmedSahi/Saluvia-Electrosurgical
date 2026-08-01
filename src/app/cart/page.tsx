@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Cart",
   description:
     "Review selected Saluvia electrosurgical instrument references and request a consolidated B2B quote.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function CartPage() {

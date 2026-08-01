@@ -6,6 +6,8 @@ import {
   clampText,
   totalProductCount,
 } from "@/components/catalog/catalog-utils";
+import { catalogCanonical } from "@/lib/catalog-seo";
+import { SITE_URL } from "@/lib/site";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { CategoryCard } from "@/components/catalog/CategoryCard";
 import { PageHeader } from "@/components/catalog/PageHeader";
@@ -13,11 +15,16 @@ import { JsonLd } from "@/components/catalog/JsonLd";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 
+const CATEGORIES_DESCRIPTION = clampText(
+  "Browse Saluvia electrosurgical product categories — bipolar forceps, electrodes, cables, gynecology instruments, and specialty surgical lines.",
+);
+
 export const metadata: Metadata = {
   title: "Electrosurgical Product Categories",
-  description: clampText(
-    "Browse Saluvia electrosurgical product categories — bipolar forceps, electrodes, cables, gynecology instruments, and specialty surgical lines.",
-  ),
+  description: CATEGORIES_DESCRIPTION,
+  alternates: {
+    canonical: catalogCanonical("/categories"),
+  },
 };
 
 export default function CategoriesPage() {
@@ -28,7 +35,8 @@ export default function CategoriesPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Electrosurgical Product Categories",
-    description: metadata.description,
+    description: CATEGORIES_DESCRIPTION,
+    url: `${SITE_URL}/categories`,
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: categories.length,
@@ -36,7 +44,7 @@ export default function CategoriesPage() {
         "@type": "ListItem",
         position: index + 1,
         name: category.name,
-        url: `/categories/${category.slug}`,
+        url: `${SITE_URL}/categories/${category.slug}`,
       })),
     },
   };
