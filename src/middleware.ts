@@ -100,6 +100,11 @@ export function middleware(request: NextRequest) {
   const lower = pathname.toLowerCase();
   const ua = request.headers.get("user-agent") ?? "";
 
+  // Always allow Google Search Console HTML verification files
+  if (/^\/google[\w-]+\.html$/i.test(pathname)) {
+    return NextResponse.next();
+  }
+
   const isDataPath =
     lower === "/data" ||
     lower.startsWith("/data/") ||
@@ -139,6 +144,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|.*\\.(?:png|jpg|jpeg|gif|webp|avif|svg|ico|css|js|map|woff|woff2)$).*)",
+    "/((?!_next/static|_next/image|google[^/]+\\.html$|.*\\.(?:png|jpg|jpeg|gif|webp|avif|svg|ico|css|js|map|woff|woff2)$).*)",
   ],
 };
