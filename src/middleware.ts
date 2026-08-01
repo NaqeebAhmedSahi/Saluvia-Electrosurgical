@@ -11,36 +11,25 @@ function clientIp(request: NextRequest): string {
   return candidates.find((value) => Boolean(value)) ?? "unknown";
 }
 
-function shouldLogPath(pathname: string): boolean {
+/** Log only real traffic — blocked bots were flooding Vercel log quota. */
+function logRequest(request: NextRequest, pathname: string, search: string) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images") ||
     pathname.startsWith("/hero") ||
     pathname === "/favicon.ico" ||
     pathname === "/robots.txt" ||
-    pathname === "/sitemap.xml"
+    pathname === "/sitemap.xml" ||
+    /\.(?:png|jpe?g|gif|webp|avif|svg|ico|css|js|map|woff2?|txt|html)$/i.test(
+      pathname,
+    )
   ) {
-    return false;
+    return;
   }
-
-  if (/\.(?:png|jpe?g|gif|webp|avif|svg|ico|css|js|map|woff2?|txt)$/i.test(pathname)) {
-    return false;
-  }
-
-  return true;
-}
-
-function logRequest(
-  type: string,
-  request: NextRequest,
-  pathname: string,
-  search: string,
-) {
-  if (!shouldLogPath(pathname) && type === "request") return;
 
   console.info(
     JSON.stringify({
-      type,
+      type: "request",
       method: request.method,
       path: `${pathname}${search}`,
       ip: clientIp(request),
@@ -54,9 +43,21 @@ function logRequest(
       city: request.headers.get("x-vercel-ip-city") ?? "",
       region: request.headers.get("x-vercel-ip-country-region") ?? "",
       requestId: request.headers.get("x-vercel-id") ?? "",
-      forwardedFor: request.headers.get("x-forwarded-for") ?? "",
     }),
   );
+}
+
+/** Cached negative response — helps CDN/Cloudflare absorb repeat bot hits. */
+function botBlockedResponse(): NextResponse {
+  return new NextResponse("Gone", {
+    status: 410,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400, s-maxage=604800, immutable",
+      "X-Content-Type-Options": "nosniff",
+      "X-Robots-Tag": "noindex",
+    },
+  });
 }
 
 function cheapNotFound(): NextResponse {
@@ -64,13 +65,12 @@ function cheapNotFound(): NextResponse {
     status: 404,
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "no-store",
+      "Cache-Control": "public, max-age=3600, s-maxage=86400",
       "X-Content-Type-Options": "nosniff",
     },
   });
 }
 
-/** Faceted listing URLs that explode crawl graphs. */
 function isHeavyFacetQuery(request: NextRequest): boolean {
   const { pathname, searchParams } = request.nextUrl;
   if (pathname !== "/products" && !pathname.startsWith("/categories/")) {
@@ -86,21 +86,18 @@ function isHeavyFacetQuery(request: NextRequest): boolean {
     0,
   );
 
-  // Multi-category and/or multi-facet combos are the crawl trap seen in logs
   return categories.length >= 2 || facetValueCount >= 2 || facetKeys.length >= 2;
 }
 
 /**
- * Catalog JSON lives in /data (server-only via fs). It is not under /public,
- * but we still hard-block common probe paths so raw JSON is never served.
- * Also logs request metadata and stops known non-Search crawl traps early.
+ * Blocks non-Search GoogleOther + facet crawl traps early.
+ * Prefer blocking GoogleOther in Cloudflare so requests never reach Vercel.
  */
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const lower = pathname.toLowerCase();
   const ua = request.headers.get("user-agent") ?? "";
 
-  // Always allow Google Search Console HTML verification files
   if (/^\/google[\w-]+\.html$/i.test(pathname)) {
     return NextResponse.next();
   }
@@ -112,33 +109,27 @@ export function middleware(request: NextRequest) {
     lower.includes(".json/");
 
   if (isDataPath) {
-    logRequest("request_blocked", request, pathname, search);
     return cheapNotFound();
   }
 
-  // GoogleOther = Google non-Search crawler (does not affect SEO). Stop immediately.
+  // No logging here — these were burning Vercel log/invocation noise
   if (/GoogleOther/i.test(ua)) {
-    logRequest("request_blocked_googleother", request, pathname, search);
-    return cheapNotFound();
+    return botBlockedResponse();
   }
 
-  // Cheap probes / scrapers with no real browser UA
   if (/^Go-http-client\//i.test(ua) || ua.trim() === "") {
-    logRequest("request_blocked_probe", request, pathname, search);
-    return cheapNotFound();
+    return botBlockedResponse();
   }
 
-  // Known bots hitting heavy facet combinations — do not render the catalog page
   const looksLikeBot =
     /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Bytespider|GPTBot|ClaudeBot|CCBot/i.test(
       ua,
     );
   if (looksLikeBot && isHeavyFacetQuery(request)) {
-    logRequest("request_blocked_facet_bot", request, pathname, search);
-    return cheapNotFound();
+    return botBlockedResponse();
   }
 
-  logRequest("request", request, pathname, search);
+  logRequest(request, pathname, search);
   return NextResponse.next();
 }
 
