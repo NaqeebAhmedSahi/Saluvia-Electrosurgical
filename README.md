@@ -28,6 +28,7 @@ This README is the single source of truth for structure, SEO, design tokens, and
 15. [Implementation phases](#15-implementation-phases)
 16. [Design & UX principles](#16-design--ux-principles)
 17. [Multi-agent build plan](#17-multi-agent-build-plan)
+18. [Production ops: Cloudflare, bots, Google Search](#18-production-ops-cloudflare-bots-google-search)
 
 ---
 
@@ -714,4 +715,205 @@ Homepage is intentionally split across agents because of section count and motio
 
 ---
 
-*Document version: 1.1 — architecture + Next.js implementation notes.*
+## 18. Production ops: Cloudflare, bots, Google Search
+
+Operational guide for the live site (`saluviaindustries.com`). App lives at the **repo root** (Next.js on **Vercel**). Use Cloudflare in front for bot protection so crawlers do not burn Vercel quota.
+
+### 18.1 Cloudflare setup (bot protection)
+
+**Do not use “Create app” / GitHub deploy on Cloudflare.** That hosts a new app. Saluvia already runs on Vercel — Cloudflare is only DNS + security proxy.
+
+1. Cloudflare dashboard → **Add a domain** (not Create app).
+2. Enter `saluviaindustries.com` → Free plan.
+3. Cloudflare shows **2 nameservers** (example shape: `ada.ns.cloudflare.com`, `bob.ns.cloudflare.com`).
+4. **Hostinger** (domain registrar):
+   - Domains → select domain → **DNS / Nameservers**
+   - Choose **Custom nameservers**
+   - Paste Cloudflare’s two nameservers → Save
+5. Wait until Cloudflare status is **Active** (minutes to 48 hours).
+6. Cloudflare **DNS**: web records for `@` / `www` must be **Proxied** (orange cloud) and point at **Vercel** (use the CNAME/A targets Vercel shows for the domain).
+7. SSL/TLS mode: **Full (strict)**.
+
+#### Cloudflare WAF rules (stop Vercel quota burn)
+
+**Security → WAF → Custom rules → Create rule**
+
+| Rule name | Expression | Action |
+|-----------|------------|--------|
+| Block GoogleOther | `(http.user_agent contains "GoogleOther")` | **Block** |
+| Block Go probes | `(http.user_agent contains "Go-http-client")` | **Block** |
+
+Also enable **Security → Bots → Bot Fight Mode**.
+
+Optional: rate-limit `POST /api/contact` and aggressive hits to `/products*`.
+
+**Important:** If DNS is “DNS only” (grey cloud), traffic bypasses Cloudflare and bots hit Vercel directly.
+
+---
+
+### 18.2 What `GoogleOther` is (vs Google Search)
+
+| Crawler | Purpose | Our policy |
+|---------|---------|------------|
+| **Googlebot** | Google **Search** indexing | Allow (SEO) |
+| **GoogleOther** | Google non-Search crawler (R&D / other products) | **Block** — does **not** hurt Search SEO |
+| Facet URL spam | `/products?category=...&f-tip=...` combinations | Disallow in robots, `nofollow` on filter links, middleware 410 for bots |
+
+Log type `request_blocked_googleother` (or silent 410 after recent middleware) means protection is working. Bursts can continue for days while Google retries old URLs.
+
+**Quota note:** Even cheap middleware 410s count as Vercel invocations. **Cloudflare Block** is the real fix so requests never reach Vercel.
+
+App-side controls (already in code):
+
+- `src/app/robots.ts` — `GoogleOther` Disallow `/`; query-string disallow for crawl traps
+- `src/app/sitemap.ts` — clean URLs only
+- `src/middleware.ts` — GoogleOther / probes → cached **410**; no flood logging
+- Filtered catalog pages → `noindex`; facet links → `rel="nofollow"`
+
+---
+
+### 18.3 Google Search Console — ownership verification
+
+#### HTML file method (current)
+
+File in repo:
+
+- `public/google961c7cf55bdf6732.html`
+- Live URL: `https://saluviaindustries.com/google961c7cf55bdf6732.html`
+- Body must contain: `google-site-verification: google961c7cf55bdf6732.html`
+
+Steps:
+
+1. Deploy must be **Ready** on Vercel.
+2. Open the live URL above — must show the verification text (not 404).
+3. Search Console → Verify (HTML file).
+
+Middleware allows `/google*.html` so verification is not blocked.
+
+#### HTML tag method (optional backup)
+
+1. Search Console → HTML tag → copy `content="...."`.
+2. In Vercel → Project → Settings → Environment Variables:
+
+```bash
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=paste_content_value_here
+NEXT_PUBLIC_SITE_URL=https://saluviaindustries.com
+```
+
+3. Redeploy. Root metadata (`src/lib/seo.ts`) emits the verification meta tag when the env var is set.
+4. See also `.env.example`.
+
+---
+
+### 18.4 Submit sitemap
+
+Search Console → **Sitemaps** → submit:
+
+```text
+sitemap.xml
+```
+
+Full URL: `https://saluviaindustries.com/sitemap.xml`  
+Also check: `https://saluviaindustries.com/robots.txt`
+
+---
+
+### 18.5 Request indexing (URL Inspection)
+
+For each URL: Search Console → **URL Inspection** → paste URL → **Request indexing**.
+
+#### Main pages
+
+```text
+https://saluviaindustries.com/
+https://saluviaindustries.com/products
+https://saluviaindustries.com/categories
+https://saluviaindustries.com/about
+https://saluviaindustries.com/contact
+```
+
+#### Important product pages (real catalog codes)
+
+```text
+https://saluviaindustries.com/products/110-100
+https://saluviaindustries.com/products/310-100
+https://saluviaindustries.com/products/150-104
+https://saluviaindustries.com/products/310-500
+https://saluviaindustries.com/products/190-100
+https://saluviaindustries.com/products/130-180
+https://saluviaindustries.com/products/150-260
+https://saluviaindustries.com/products/110-100%20NS
+https://saluviaindustries.com/products/190-220
+```
+
+Codes with spaces must use `%20` (e.g. `110-100 NS` → `110-100%20NS`).
+
+Daily request limits apply — prioritize main pages first.
+
+---
+
+### 18.6 Rich results test
+
+1. Open [Rich Results Test](https://search.google.com/test/rich-results).
+2. Test homepage: `https://saluviaindustries.com/`
+3. Test one product: `https://saluviaindustries.com/products/110-100`
+4. Expect Organization / WebSite / Breadcrumb / Product-related items. Fix **errors**; warnings are often OK.
+
+Site JSON-LD: `src/components/seo/SiteJsonLd.tsx` (Organization + WebSite + SearchAction).
+
+---
+
+### 18.7 Target keywords (use naturally — do not spam)
+
+Examples:
+
+- Saluvia Industries
+- electrosurgical instruments manufacturer Pakistan
+- bipolar forceps OEM
+- electrosurgical electrodes supplier
+
+Use once in title/H1 and early body on About/home; keep product pages code-first. Do not keyword-stuff.
+
+---
+
+### 18.8 Realistic Google timeline
+
+| Stage | Typical time |
+|-------|----------------|
+| Verification + sitemap accepted | Same day–2 days |
+| First pages indexed | 3–14 days |
+| Broader catalog indexed | 2–6 weeks |
+| Brand name ranking (“Saluvia Industries”) | 1–4 weeks (often faster) |
+| Competitive keyword rankings | 2–6+ months (not guaranteed #1) |
+
+Check weekly: Search Console → **Pages** and **Performance**.  
+`site:saluviaindustries.com` in Google shows indexed URLs (rough signal).
+
+---
+
+### 18.9 Env vars (production)
+
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Canonicals, sitemap, Open Graph (`https://saluviaindustries.com`) |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Search Console HTML-tag verification |
+| `MAIL_*` | Contact form SMTP (see `.env.example`) |
+
+---
+
+### 18.10 Ops checklist
+
+- [ ] Cloudflare domain Active + **Proxied** DNS to Vercel  
+- [ ] WAF: Block `GoogleOther` + `Go-http-client`  
+- [ ] Bot Fight Mode on  
+- [ ] SSL Full (strict)  
+- [ ] Search Console verified  
+- [ ] `sitemap.xml` submitted  
+- [ ] Key URLs requested for indexing  
+- [ ] Rich results tested (home + 1 PDP)  
+- [ ] Vercel env: `NEXT_PUBLIC_SITE_URL` (+ verification if using meta tag)  
+- [ ] Confirm humans + `Googlebot` still get **200** on clean URLs  
+
+---
+
+*Document version: 1.2 — architecture + production ops (Cloudflare, bots, Google Search).*
