@@ -208,6 +208,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                           category: next,
                           ...facetQueryParams(facetSelections),
                         })}
+                        rel="nofollow"
                         className={`flex items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm transition ${
                           active
                             ? "bg-accent-muted font-semibold text-brand"
@@ -250,6 +251,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                             category: selectedCategories,
                             ...facetQueryParams(nextSelections),
                           })}
+                          rel="nofollow"
                           className={`flex items-center justify-between gap-2 rounded-md px-2 py-1.5 text-sm transition ${
                             entry.selected
                               ? "bg-accent-muted font-semibold text-brand"
@@ -320,6 +322,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                         page: pageNumber === 1 ? undefined : pageNumber,
                         ...facetQueryParams(facetSelections),
                       })}
+                      rel="nofollow"
                       className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
                         pageNumber === paged.page
                           ? "bg-brand text-ink-inverse"

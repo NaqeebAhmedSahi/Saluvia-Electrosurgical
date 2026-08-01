@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/site";
 
 /**
  * Limit crawler URL explosion from faceted catalog query strings.
- * Metadata noindex on filtered pages is the stronger signal; robots helps polite bots.
+ * GoogleOther is Google's non-Search crawler — blocking it does not hurt SEO.
  */
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -15,7 +15,6 @@ export default function robots(): MetadataRoute.Robots {
           "/api/",
           "/cart",
           "/data/",
-          // Faceted / filtered catalog (query-string crawl traps)
           "/products?",
           "/*?*",
         ],
@@ -25,10 +24,18 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/cart", "/data/", "/products?", "/*?*"],
       },
+      // Non-Search Google crawler — main source of facet spam in Vercel logs
       {
         userAgent: "GoogleOther",
-        allow: "/",
-        disallow: ["/api/", "/cart", "/data/", "/products?", "/*?*"],
+        disallow: ["/"],
+      },
+      {
+        userAgent: "GoogleOther-Image",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "GoogleOther-Video",
+        disallow: ["/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
