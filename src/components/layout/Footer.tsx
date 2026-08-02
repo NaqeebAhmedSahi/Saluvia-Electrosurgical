@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { FooterAboutText } from "@/components/layout/FooterAboutText";
 import { CATEGORY_FAMILIES } from "@/lib/category-families";
 import {
   SITE_EMAILS,
@@ -70,11 +71,7 @@ export function Footer() {
             <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent-bright/90">
               Precision Electrosurgical Instrument Manufacturer
             </p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-inverse/70">
-              ISO 13485 &amp; ISO 9001 certified electrosurgical instruments for
-              hospitals, distributors, and OEM partners worldwide — with a
-              standard lead time of about 6 weeks.
-            </p>
+            <FooterAboutText />
 
             <ul
               className="mt-5 flex flex-wrap gap-x-2 gap-y-1.5 text-[11px] leading-snug text-ink-inverse/55"

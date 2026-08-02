@@ -176,11 +176,11 @@ export function ContactForm() {
     >
       <div className="mb-6">
         <h2 className="font-display text-2xl font-semibold text-ink">
-          Send Us an Inquiry
+          Ready to Get Started?
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-          Fill out the contact form and our team will respond as soon as
-          possible.
+          Send us your inquiry today. We typically respond within{" "}
+          <span className="font-medium text-ink">1 business day</span>.
         </p>
       </div>
 
@@ -427,16 +427,6 @@ export function ContactForm() {
               {errors.consent ? (
                 <p className="mt-1.5 text-xs text-danger">{errors.consent}</p>
               ) : null}
-            </div>
-
-            <div className="sm:col-span-2 rounded-lg border border-border/80 bg-bg px-4 py-4 sm:px-5">
-              <p className="font-display text-base font-semibold text-ink">
-                Ready to Get Started?
-              </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                Send us your inquiry today. We typically respond within{" "}
-                <span className="font-medium text-ink">1 business day</span>.
-              </p>
             </div>
 
             <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">

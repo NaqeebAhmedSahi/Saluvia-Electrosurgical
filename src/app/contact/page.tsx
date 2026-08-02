@@ -85,7 +85,7 @@ const WHY_CONTACT = [
     icon: Award,
   },
   {
-    title: "Standard Lead Time",
+    title: "Standard Lead Time (~6 weeks)",
     description:
       "Approximately 6 weeks standard production lead time, confirmed on each quotation.",
     icon: Timer,
@@ -101,7 +101,14 @@ const FAQ_ITEMS = [
   {
     question: "What information should I include when requesting a quotation?",
     answer:
-      "Please include the product name or code, estimated quantity, destination country, preferred shipping method, and any customization requirements such as branding, packaging, or labeling. The more detail you provide, the faster we can prepare an accurate quote.",
+      "To prepare an accurate quotation quickly, please include:",
+    answerItems: [
+      "Product name or product code(s)",
+      "Estimated quantity",
+      "Destination country",
+      "Preferred shipping method",
+      "Any customization requirements (branding, packaging, or labeling)",
+    ],
   },
   {
     question: "Do you provide product documentation?",
@@ -233,7 +240,7 @@ export default function ContactPage() {
           <Reveal>
             <SectionHeading
               eyebrow="Why Saluvia Industries"
-              title="Why contact Saluvia Industries?"
+              title="Why Contact Saluvia"
               description="Responsive communication, technical depth, and manufacturing discipline for professional buyers worldwide."
               invert
             />
@@ -279,7 +286,9 @@ export default function ContactPage() {
                 </h2>
                 <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-inverse/85">
                   Quality instruments, reliable manufacturing, and responsive
-                  communication — from first inquiry through ongoing supply.
+                  communication — from first inquiry through ongoing supply. Send
+                  us your inquiry today; we typically respond within 1 business
+                  day.
                 </p>
                 <div className="mt-8">
                   <Button href="#inquiry" variant="primary">

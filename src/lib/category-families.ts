@@ -30,29 +30,23 @@ export const CATEGORY_FAMILIES: {
     ],
   },
   {
-    title: "Single-Use Forceps",
+    title: "Electrosurgical Electrodes",
     description:
-      "Sterile single-use bipolar forceps engineered for infection-control protocols and consistent clinical performance.",
+      "Blade, needle, loop, ball, tungsten, arthroscopic, and specialty electrodes designed for consistent cutting and coagulation performance.",
     slugs: [
-      "bipolar-forceps-single-use",
-      "bipolar-forceps-single-use-non-stick",
-      "bipolar-forceps-single-use-ultra-non-stick",
-      "bipolar-forceps-single-use-molded",
-      "european-bipolar-forceps-single-use",
-    ],
-  },
-  {
-    title: "Electrodes & Pencils",
-    description:
-      "Blade, needle, loop, ball, tungsten, arthroscopic, and specialty electrodes for consistent cutting and coagulation — plus reusable and disposable pencils with rocker switch and push-button configurations compatible with major electrosurgical generators.",
-    slugs: [
-      "electrosurgical-pencils",
       "electrodes-2-4-mm-non-stick",
       "tungsten-needle-electrodes-2-4-mm",
       "electrodes-4-0-mm",
       "arthroscopic-electrodes",
       "bipolar-electrodes",
+      "electrodes-1-6-mm-single-use",
     ],
+  },
+  {
+    title: "Electrosurgical Pencils",
+    description:
+      "Reusable and disposable pencils with rocker switch and push-button configurations compatible with major electrosurgical generators.",
+    slugs: ["electrosurgical-pencils"],
   },
   {
     title: "Bipolar & Monopolar Cables",

@@ -9,7 +9,6 @@ export type CategoryFamilyItem = {
   title: string;
   description: string;
   category: Category;
-  productCount?: number;
   image?: string | null;
 };
 
@@ -100,15 +99,8 @@ export function CategoryShowcase({
                       →
                     </span>
                   </div>
-                  <p className="mt-2 line-clamp-3 min-h-15 text-sm leading-relaxed text-ink-soft">
+                  <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-soft">
                     {family.description}
-                  </p>
-                  <p className="mt-auto border-t border-border pt-3 text-xs font-medium text-ink-muted">
-                    {family.productCount ?? family.category.total_products}{" "}
-                    {(family.productCount ?? family.category.total_products) ===
-                    1
-                      ? "product"
-                      : "products"}
                   </p>
                 </div>
               </Link>

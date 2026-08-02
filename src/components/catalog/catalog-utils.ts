@@ -433,12 +433,10 @@ export function productMetaDescription(product: Product): string {
 
 export function categoryMetaDescription(
   category: Category,
-  count: number,
+  _count: number,
 ): string {
   return clampText(
-    `${category.name} from Saluvia — ${count} electrosurgical ${
-      count === 1 ? "reference" : "references"
-    } listed with product codes, tip and size options, and imagery. Request a quote.`,
+    `${category.name} from Saluvia — electrosurgical references listed with product codes, tip and size options, and imagery. Request a quote.`,
   );
 }
 
@@ -447,7 +445,6 @@ export function categoryMetaDescription(
  * intro is derived from catalog facts rather than invented marketing claims.
  */
 export function categoryIntro(category: Category, products: Product[]): string {
-  const count = products.length || category.total_products;
   const keys = facetKeys(products);
   const optionText = keys.length
     ? `${keys.slice(0, 3).join(", ").toLowerCase()} options`
@@ -473,9 +470,7 @@ export function categoryIntro(category: Category, products: Product[]): string {
     closing =
       "European-pattern handles and tip geometries are listed per reference.";
   }
-  return `The Saluvia ${category.name} range covers ${count} ${
-    count === 1 ? "reference" : "references"
-  }, each listed with its product code, ${optionText}, and product imagery for specification and procurement. ${closing}`;
+  return `The Saluvia ${category.name} range includes electrosurgical references, each listed with its product code, ${optionText}, and product imagery for specification and procurement. ${closing}`;
 }
 
 export function quoteHref(options?: {

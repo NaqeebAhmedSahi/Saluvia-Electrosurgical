@@ -146,7 +146,7 @@ export function ContactChannels({
       <div>
         <SectionHeading
           eyebrow="Get in touch"
-          title="Contact details"
+          title="Contact channels"
           description="Reach Saluvia Industries for quotations, OEM partnerships, technical documentation, and distributor opportunities."
         />
         <Stagger className="mt-8 grid gap-4">

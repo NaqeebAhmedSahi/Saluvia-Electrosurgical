@@ -22,10 +22,6 @@ export type HeroProps = {
   headline: string;
   support: string;
   slides: HeroSlide[];
-  productCount?: number;
-  categoryCount?: number;
-  productLabel?: string;
-  categoryLabel?: string;
   certifications?: string[];
   catalogHref?: string;
   catalogLabel?: string;
@@ -50,10 +46,6 @@ export function Hero({
   headline,
   support,
   slides,
-  productCount = 570,
-  categoryCount = 46,
-  productLabel = "Electrosurgical Products",
-  categoryLabel = "Product Categories",
   certifications = [...DEFAULT_CERTS],
   catalogHref = "/products",
   catalogLabel = "Explore Catalog",
@@ -181,32 +173,15 @@ export function Hero({
             </Button>
           </motion.div>
 
-          <motion.p
-            className="mt-10 text-sm tracking-wide text-white/55"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, ease, delay: reduceMotion ? 0 : 0.22 }}
-          >
-            <span className="font-semibold text-white/85">
-              Over {productCount}
-            </span>{" "}
-            {productLabel}
-            <span className="mx-2.5 text-accent-bright/80" aria-hidden>
-              ·
-            </span>
-            <span className="font-semibold text-white/85">{categoryCount}</span>{" "}
-            {categoryLabel}
-          </motion.p>
-
           {certifications.length > 0 ? (
             <motion.p
-              className="mt-5 max-w-lg text-[11px] leading-relaxed tracking-wide text-white/45 sm:text-xs"
+              className="mt-10 max-w-lg text-[11px] leading-relaxed tracking-wide text-white/45 sm:text-xs"
               initial={reduceMotion ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
                 duration: 0.4,
                 ease,
-                delay: reduceMotion ? 0 : 0.28,
+                delay: reduceMotion ? 0 : 0.22,
               }}
             >
               {certifications.join(" · ")}

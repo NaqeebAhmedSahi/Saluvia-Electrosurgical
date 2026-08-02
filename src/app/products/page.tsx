@@ -19,7 +19,6 @@ import {
   readFacetSelections,
   sortProducts,
   toggleValue,
-  totalProductCount,
   type SearchParamsInput,
 } from "@/components/catalog/catalog-utils";
 import {
@@ -119,14 +118,6 @@ export default async function ProductsPage({ searchParams }: PageProps) {
           eyebrow="Catalog"
           title="Product catalog"
           description="Search by product code or name, filter by category and tip/size options, then request a quote with your selected references."
-          stats={[
-            { label: "Total SKUs", value: `${totalProductCount()}+` },
-            { label: "Matching", value: String(paged.total) },
-            {
-              label: "Active filters",
-              value: String(selectedCategories.length + activeFacetCount + (q ? 1 : 0)),
-            },
-          ]}
           actions={
             <Button href={quoteHref()} variant="primary">
               Request quote
@@ -216,9 +207,6 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                         }`}
                       >
                         <span className="line-clamp-1">{category.name}</span>
-                        <span className="text-xs text-ink-muted">
-                          {category.total_products}
-                        </span>
                       </Link>
                     </li>
                   );

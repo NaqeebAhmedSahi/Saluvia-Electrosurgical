@@ -120,16 +120,6 @@ export default async function CategoryDetailPage({
           eyebrow="Category"
           title={category.name}
           description={categoryIntro(category, productsInCategory(slug))}
-          stats={[
-            { label: "Products", value: String(paged.total) },
-            {
-              label: "Showing",
-              value:
-                paged.total === 0
-                  ? "0"
-                  : `${paged.from}–${paged.to}`,
-            },
-          ]}
           actions={
             <>
               <Button
@@ -244,9 +234,6 @@ export default async function CategoryDetailPage({
                   className="rounded-md border border-border bg-bg-elevated px-3 py-2 text-sm text-ink-soft transition hover:border-accent hover:text-brand"
                 >
                   {item.name}
-                  <span className="ml-2 text-ink-muted">
-                    ({item.total_products})
-                  </span>
                 </Link>
               ))}
             </div>

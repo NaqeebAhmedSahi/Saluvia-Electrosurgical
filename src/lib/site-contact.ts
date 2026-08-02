@@ -38,20 +38,20 @@ export const SITE_SALES_CHANNELS = [
     label: "Manufacturing Facility",
     email: SITE_EMAILS.general,
     phone: SITE_PHONE.display,
-    note: "Saluvia Industries — Sialkot, Punjab, Pakistan.",
+    note: "Saluvia Industries, Sialkot, Punjab, Pakistan",
   },
   {
     type: "email",
     label: "Email",
     email: SITE_EMAILS.general,
     phone: SITE_PHONE.display,
-    note: "General inquiries, quotations, OEM partnerships, technical documentation, and distributor opportunities.",
+    note: "For general inquiries, quotations, OEM partnerships, technical documentation, and distributor opportunities.",
   },
   {
     type: "phone",
     label: "Phone",
     email: SITE_EMAILS.general,
     phone: SITE_PHONE.display,
-    note: "Monday – Saturday, 9:00 AM – 6:00 PM (PKT).",
+    note: "Monday – Saturday, 9:00 AM – 6:00 PM (PKT)",
   },
 ] as const;

@@ -58,8 +58,6 @@ const HERO_SLIDES = [
 export default function HomePage() {
   const categories = getCategories();
   const featured = getFeaturedProducts(8);
-  const productCount = categories.reduce((n, c) => n + c.total_products, 0);
-  const categoryCount = categories.length;
 
   const families = CATEGORY_FAMILIES.map((family) => {
     const primary =
@@ -78,7 +76,6 @@ export default function HomePage() {
         slug: family.slugs[0],
         total_products: familyProductCount,
       },
-      productCount: familyProductCount,
       image: imageSlug ? getCategoryThumb(imageSlug) : null,
     };
   }).filter((f) => f.category);
@@ -91,35 +88,10 @@ export default function HomePage() {
         headline="Precision Engineered Electrosurgical Instruments for Modern Surgery"
         support="Manufactured in Pakistan for hospitals, OEM partners, medical distributors, and healthcare brands worldwide."
         slides={[...HERO_SLIDES]}
-        productCount={productCount}
-        categoryCount={categoryCount}
         catalogHref="/products"
         quoteHref="/contact"
       />
-      <Overview
-        pillars={[
-          {
-            title: `Over ${productCount} Electrosurgical Products`,
-            description:
-              "A broad catalog spanning bipolar forceps, electrodes, pencils, cables, and specialty instruments.",
-          },
-          {
-            title: `${categoryCount} Product Categories`,
-            description:
-              "Organized families for hospitals, distributors, and OEM buyers who specify by code and configuration.",
-          },
-          {
-            title: "OEM & Private Label Solutions",
-            description:
-              "Customized manufacturing programs for medical device brands and private label partners worldwide.",
-          },
-          {
-            title: "Global Export Experience",
-            description:
-              "Reliable production and supply for international markets, tenders, and multi-region distribution.",
-          },
-        ]}
-      />
+      <Overview />
       <WhyChoose />
       <FeaturedProducts products={featured} />
       <CategoryShowcase families={families} />

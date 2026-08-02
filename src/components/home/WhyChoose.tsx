@@ -29,17 +29,17 @@ const DEFAULT_ITEMS: WhyChooseItem[] = [
   {
     title: "Certified Quality Management",
     description:
-      "ISO 13485, ISO 9001, CE Mark Extension Letter, comprehensive in-process and final quality inspection, and full manufacturing traceability. Every production batch undergoes strict inspection before shipment.",
+      "Manufactured under internationally recognized quality systems including ISO 13485, ISO 9001, CE Mark Extension Letter, comprehensive in-process and final quality inspection, and full manufacturing traceability. Every production batch undergoes strict inspection before shipment.",
   },
   {
     title: "Reliable Lead Time",
     description:
-      "Standard production lead time approximately 6 weeks. Urgent and OEM schedules can be discussed.",
+      "Efficient manufacturing planning allows us to maintain dependable delivery schedules. Standard Production Lead Time approximately 6 Weeks. Urgent projects and OEM production schedules can be discussed based on product type and order volume.",
   },
   {
     title: "OEM & Global Partnership",
     description:
-      "Medical device brands, healthcare distributors, hospital procurement teams, government tenders, private label programs, and international OEM manufacturing.",
+      "We support Medical Device Brands, Healthcare Distributors, Hospital Procurement Teams, Government Tenders, Private Label Programs, International OEM Manufacturing. Flexible manufacturing capabilities help partners build long-term supply chains with confidence.",
   },
 ];
 

@@ -26,12 +26,12 @@ export type OverviewProps = {
 
 const DEFAULT_PILLARS: OverviewPillar[] = [
   {
-    title: "Over 570 Electrosurgical Products",
+    title: "Broad Electrosurgical Catalog",
     description:
       "A broad catalog spanning bipolar forceps, electrodes, pencils, cables, and specialty instruments.",
   },
   {
-    title: "46 Product Categories",
+    title: "Organized Product Categories",
     description:
       "Organized families for hospitals, distributors, and OEM buyers who specify by code and configuration.",
   },

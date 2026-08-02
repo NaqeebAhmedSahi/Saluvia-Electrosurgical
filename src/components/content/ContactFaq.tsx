@@ -6,6 +6,8 @@ import { SectionHeading } from "@/components/content/SectionHeading";
 export type FaqItem = {
   question: string;
   answer: string;
+  /** Optional bullet list rendered after the answer paragraph */
+  answerItems?: readonly string[];
 };
 
 export function ContactFaq({
@@ -33,6 +35,13 @@ export function ContactFaq({
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft sm:text-base">
                   {item.answer}
                 </p>
+                {item.answerItems && item.answerItems.length > 0 ? (
+                  <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-ink-soft sm:text-base">
+                    {item.answerItems.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </article>
             </StaggerItem>
           ))}

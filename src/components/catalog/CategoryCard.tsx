@@ -44,10 +44,6 @@ export function CategoryCard({
             →
           </span>
         </div>
-        <p className="mt-auto border-t border-border pt-3 text-xs text-ink-muted">
-          {category.total_products}{" "}
-          {category.total_products === 1 ? "product" : "products"}
-        </p>
       </div>
     </Link>
   );

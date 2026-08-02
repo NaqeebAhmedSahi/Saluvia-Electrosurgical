@@ -4,9 +4,14 @@ import {
   allCategories,
   categoryThumb,
   clampText,
-  totalProductCount,
+  firstParam,
+  type SearchParamsInput,
 } from "@/components/catalog/catalog-utils";
-import { catalogCanonical } from "@/lib/catalog-seo";
+import {
+  catalogCanonical,
+  catalogListRobots,
+  isFilteredCatalogQuery,
+} from "@/lib/catalog-seo";
 import { SITE_URL } from "@/lib/site";
 import { Breadcrumbs } from "@/components/catalog/Breadcrumbs";
 import { CategoryCard } from "@/components/catalog/CategoryCard";
@@ -15,21 +20,50 @@ import { JsonLd } from "@/components/catalog/JsonLd";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 
+type PageProps = {
+  searchParams: Promise<SearchParamsInput>;
+};
+
 const CATEGORIES_DESCRIPTION = clampText(
   "Browse Saluvia electrosurgical product categories — bipolar forceps, electrodes, cables, gynecology instruments, and specialty surgical lines.",
 );
 
-export const metadata: Metadata = {
-  title: "Electrosurgical Product Categories",
-  description: CATEGORIES_DESCRIPTION,
-  alternates: {
-    canonical: catalogCanonical("/categories"),
-  },
-};
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const query = await searchParams;
+  const filtered = isFilteredCatalogQuery(query);
 
-export default function CategoriesPage() {
-  const categories = allCategories();
-  const total = totalProductCount();
+  return {
+    title: "Electrosurgical Product Categories",
+    description: CATEGORIES_DESCRIPTION,
+    robots: catalogListRobots(filtered),
+    alternates: {
+      canonical: catalogCanonical("/categories"),
+    },
+  };
+}
+
+function matchesCategoryQuery(
+  name: string,
+  slug: string,
+  query: string,
+): boolean {
+  const needle = query.trim().toLowerCase();
+  if (!needle) return true;
+  return (
+    name.toLowerCase().includes(needle) ||
+    slug.toLowerCase().replace(/-/g, " ").includes(needle) ||
+    slug.toLowerCase().includes(needle)
+  );
+}
+
+export default async function CategoriesPage({ searchParams }: PageProps) {
+  const query = await searchParams;
+  const q = firstParam(query, "q") ?? "";
+  const categories = allCategories().filter((category) =>
+    matchesCategoryQuery(category.name, category.slug, q),
+  );
 
   const schema = {
     "@context": "https://schema.org",
@@ -62,10 +96,6 @@ export default function CategoriesPage() {
           eyebrow="Catalog"
           title="Product categories"
           description="Explore Saluvia’s electrosurgical instrument families. Select a category to view product codes, tip and size options, and imagery."
-          stats={[
-            { label: "Categories", value: String(categories.length) },
-            { label: "References", value: `${total}+` },
-          ]}
           actions={
             <Button href="/products" variant="outline">
               Browse full catalog
@@ -73,16 +103,66 @@ export default function CategoriesPage() {
           }
         />
 
-        <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {categories.map((category) => (
-            <StaggerItem key={category.slug}>
-              <CategoryCard
-                category={category}
-                thumb={categoryThumb(category.slug)}
+        <Reveal className="rounded-lg border border-border bg-bg-elevated p-4 shadow-sm sm:p-5">
+          <form
+            action="/categories"
+            method="get"
+            className="flex flex-col gap-3 sm:flex-row sm:items-end"
+          >
+            <div className="min-w-0 flex-1">
+              <label
+                htmlFor="category-search"
+                className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted"
+              >
+                Search
+              </label>
+              <input
+                id="category-search"
+                name="q"
+                defaultValue={q}
+                placeholder="Search categories by name…"
+                className="w-full rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-ink placeholder:text-ink-muted"
               />
-            </StaggerItem>
-          ))}
-        </Stagger>
+            </div>
+            <div className="flex shrink-0 gap-2">
+              <Button type="submit" variant="secondary">
+                Filter
+              </Button>
+              {q ? (
+                <Button href="/categories" variant="ghost">
+                  Clear
+                </Button>
+              ) : null}
+            </div>
+          </form>
+        </Reveal>
+
+        {categories.length ? (
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {categories.map((category) => (
+              <StaggerItem key={category.slug}>
+                <CategoryCard
+                  category={category}
+                  thumb={categoryThumb(category.slug)}
+                />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        ) : (
+          <Reveal className="rounded-xl border border-border bg-bg-elevated px-6 py-12 text-center shadow-sm">
+            <h2 className="font-display text-xl font-semibold text-ink">
+              No categories match “{q}”
+            </h2>
+            <p className="mx-auto mt-2 max-w-md text-sm text-ink-soft">
+              Try a different name, or browse the full category list.
+            </p>
+            <div className="mt-6">
+              <Button href="/categories" variant="outline">
+                Clear search
+              </Button>
+            </div>
+          </Reveal>
+        )}
 
         <Reveal className="rounded-xl border border-border bg-bg-elevated p-6 shadow-sm sm:p-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
