@@ -14,15 +14,22 @@ import { cn } from "@/lib/utils";
 export type HeroSlide = {
   src: string;
   alt: string;
+  headline: string;
+  support: string;
+  catalogHref?: string;
+  catalogLabel?: string;
+  quoteHref?: string;
+  quoteLabel?: string;
+  certifications?: string[];
 };
 
 export type HeroProps = {
   brand?: string;
   brandSupport?: string;
-  headline: string;
-  support: string;
   slides: HeroSlide[];
+  /** @deprecated Prefer per-slide certifications */
   certifications?: string[];
+  /** Optional fallbacks when a slide omits CTA fields */
   catalogHref?: string;
   catalogLabel?: string;
   quoteHref?: string;
@@ -31,22 +38,13 @@ export type HeroProps = {
   className?: string;
 };
 
-const DEFAULT_CERTS = [
-  "ISO 13485 Certified",
-  "ISO 9001 Certified",
-  "CE Mark Extension Letter",
-  "OEM & Private Label Manufacturing",
-] as const;
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero({
   brand = "Saluvia",
   brandSupport = "Industries",
-  headline,
-  support,
   slides,
-  certifications = [...DEFAULT_CERTS],
+  certifications: legacyCerts,
   catalogHref = "/products",
   catalogLabel = "Explore Catalog",
   quoteHref = "/contact",
@@ -78,6 +76,19 @@ export function Hero({
 
   if (count === 0) return null;
 
+  const slide = slides[index];
+  const slideCatalogHref = slide.catalogHref ?? catalogHref;
+  const slideCatalogLabel = slide.catalogLabel ?? catalogLabel;
+  const slideQuoteHref = slide.quoteHref ?? quoteHref;
+  const slideQuoteLabel = slide.quoteLabel ?? quoteLabel;
+
+  const slideCerts =
+    slide.certifications !== undefined
+      ? slide.certifications
+      : legacyCerts
+        ? legacyCerts
+        : [];
+
   return (
     <section
       id="hero"
@@ -100,7 +111,7 @@ export function Hero({
       <div className="absolute inset-0" aria-hidden>
         <AnimatePresence mode="sync" initial={false}>
           <motion.div
-            key={slides[index].src}
+            key={index}
             className="absolute inset-0"
             initial={reduceMotion ? false : { opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -108,7 +119,7 @@ export function Hero({
             transition={{ duration: reduceMotion ? 0 : 1.1, ease }}
           >
             <Image
-              src={slides[index].src}
+              src={slide.src}
               alt=""
               fill
               priority={index === 0}
@@ -124,10 +135,9 @@ export function Hero({
         <div className="absolute inset-y-0 left-0 w-[min(58%,36rem)] bg-linear-to-r from-[#041820]/50 to-transparent" />
       </div>
 
-      {/* Copy — left safe zone */}
-      <div className="container-site relative flex min-h-[min(92vh,52rem)] flex-col justify-center py-24 pr-4 sm:pr-8 lg:pr-[42%]">
+      {/* Copy — left safe zone; top-anchored so brand stays fixed across slides */}
+      <div className="container-site relative flex min-h-[min(92vh,52rem)] flex-col justify-start pt-[clamp(5.5rem,16vh,8.5rem)] pb-28 pr-4 sm:pr-8 lg:pr-[42%]">
         <div className="max-w-xl">
-          {/* Brand / headline / support: visible on first paint */}
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent-bright/90">
             Electrosurgical instruments
           </p>
@@ -141,52 +151,48 @@ export function Hero({
                 {brandSupport}
               </span>
             ) : null}
-            <span className="mt-5 block text-balance text-xl font-medium leading-snug text-white/95 sm:text-2xl">
-              {headline}
-            </span>
           </h1>
 
-          <p className="mt-5 max-w-md text-base leading-relaxed text-white/75 sm:text-lg">
-            {support}
-          </p>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={index}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+              transition={{ duration: reduceMotion ? 0 : 0.35, ease }}
+            >
+              <p className="mt-5 max-w-lg text-balance text-xl font-medium leading-snug text-white/95 sm:text-2xl">
+                {slide.headline}
+              </p>
 
-          {/* Secondary elements: subtle entrance */}
-          <motion.div
-            className="mt-9 flex flex-wrap items-center gap-3"
-            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease, delay: reduceMotion ? 0 : 0.12 }}
-          >
-            <Button
-              href={catalogHref}
-              variant="primary"
-              className="min-h-11 px-6 text-white shadow-lg"
-            >
-              {catalogLabel}
-            </Button>
-            <Button
-              href={quoteHref}
-              variant="outline"
-              className="min-h-11 border-white/40 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white/12 hover:text-white"
-            >
-              {quoteLabel}
-            </Button>
-          </motion.div>
+              <p className="mt-5 max-w-md text-base leading-relaxed text-white/75 sm:text-lg">
+                {slide.support}
+              </p>
 
-          {certifications.length > 0 ? (
-            <motion.p
-              className="mt-10 max-w-lg text-[11px] leading-relaxed tracking-wide text-white/45 sm:text-xs"
-              initial={reduceMotion ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.4,
-                ease,
-                delay: reduceMotion ? 0 : 0.22,
-              }}
-            >
-              {certifications.join(" · ")}
-            </motion.p>
-          ) : null}
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <Button
+                  href={slideCatalogHref}
+                  variant="primary"
+                  className="min-h-11 px-6 text-white shadow-lg"
+                >
+                  {slideCatalogLabel}
+                </Button>
+                <Button
+                  href={slideQuoteHref}
+                  variant="outline"
+                  className="min-h-11 border-white/40 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white/12 hover:text-white"
+                >
+                  {slideQuoteLabel}
+                </Button>
+              </div>
+
+              {slideCerts.length > 0 ? (
+                <p className="mt-10 max-w-lg text-[11px] leading-relaxed tracking-wide text-white/45 sm:text-xs">
+                  {slideCerts.join(" · ")}
+                </p>
+              ) : null}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
@@ -199,15 +205,15 @@ export function Hero({
               role="tablist"
               aria-label="Hero slides"
             >
-              {slides.map((slide, i) => {
+              {slides.map((s, i) => {
                 const active = i === index;
                 return (
                   <button
-                    key={slide.src}
+                    key={`${s.src}-${i}`}
                     type="button"
                     role="tab"
                     aria-selected={active}
-                    aria-label={`Show slide ${i + 1} of ${count}`}
+                    aria-label={`Show slide ${i + 1} of ${count}: ${s.headline}`}
                     onClick={() => goTo(i)}
                     className={cn(
                       "group relative h-1.5 overflow-hidden rounded-full transition-all duration-500",
@@ -268,7 +274,7 @@ export function Hero({
 
       {/* Screen-reader live region */}
       <div className="sr-only" aria-live="polite">
-        Slide {index + 1} of {count}: {slides[index].alt}
+        Slide {index + 1} of {count}: {slide.headline}. {slide.alt}
       </div>
     </section>
   );

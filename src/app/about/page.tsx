@@ -222,8 +222,8 @@ export default function AboutPage() {
         eyebrow="About Saluvia Industries"
         title="Manufacturing Precision. Supporting Better Surgical Outcomes."
         description="At Saluvia Industries, we believe precision is more than a manufacturing standard—it is the foundation of every instrument we produce. We manufacture electrosurgical instruments that combine advanced production technologies, skilled craftsmanship, and certified quality systems for hospitals, distributors, and OEM partners worldwide."
-        imageSrc="/hero/slide-01.png"
-        imageAlt="Surgical team using precision instruments in a modern operating room"
+        imageSrc="/hero/02_about_page_hero.png"
+        imageAlt="Precision electrosurgical manufacturing by Saluvia Industries"
       >
         <div className="flex flex-wrap gap-3">
           <Button href="/contact" variant="primary">

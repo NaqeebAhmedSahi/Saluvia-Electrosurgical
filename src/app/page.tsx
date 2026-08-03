@@ -10,7 +10,6 @@ import { Overview } from "@/components/home/Overview";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { CategoryShowcase } from "@/components/home/CategoryShowcase";
-import { Solutions } from "@/components/home/Solutions";
 import { Quality } from "@/components/home/Quality";
 import { QuoteBand } from "@/components/home/QuoteBand";
 import { SITE_EMAILS, SITE_PHONE } from "@/lib/site-contact";
@@ -34,26 +33,78 @@ export const metadata: Metadata = {
 
 const HERO_SLIDES = [
   {
-    src: "/hero/slide-01.png",
-    alt: "Bipolar forceps on a surgical tray — Saluvia electrosurgical instruments",
+    src: "/hero/03_bayonet_bipolar_forceps.png",
+    alt: "Precision bayonet bipolar forceps — Saluvia electrosurgical instruments",
+    headline: "Precision Engineered Electrosurgical Instruments",
+    support:
+      "Trusted manufacturing partner for hospitals, OEM partners, medical distributors, and healthcare brands worldwide.",
+    catalogHref: "/products",
+    catalogLabel: "Explore Catalog",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
+    certifications: [
+      "ISO 13485 Certified",
+      "ISO 9001 Certified",
+      "CE Mark Extension Letter",
+      "OEM & Private Label Manufacturing",
+    ],
   },
   {
-    src: "/hero/slide-02.png",
-    alt: "Electrosurgical instrument set prepared in a modern operating room",
+    src: "/hero/02_straight_bipolar_forceps.png",
+    alt: "Precision straight bipolar forceps for controlled electrosurgical performance",
+    headline: "Precision Bipolar Forceps for Controlled Performance",
+    support:
+      "Designed for accurate tissue coagulation with superior handling, reliability, and minimal thermal spread.",
+    catalogHref: "/categories/bipolar-forceps",
+    catalogLabel: "Explore Products",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-03.png",
-    alt: "Electrosurgical pencil with blade and electrode tips",
+    src: "/hero/01_european_bipolar_forceps.png",
+    alt: "European-style bipolar forceps with premium precision",
+    headline: "European-Style Bipolar Forceps with Premium Precision",
+    support:
+      "Crafted to meet international standards, delivering exceptional balance, accuracy, and surgical confidence.",
+    catalogHref: "/categories/european-bipolar-forceps",
+    catalogLabel: "Explore Products",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-04.png",
-    alt: "Electrosurgical pencils with blade and needle electrodes",
+    src: "/hero/04_electrosurgical_electrodes.png",
+    alt: "Electrosurgical electrodes in multiple shapes and configurations",
+    headline: "Electrosurgical Electrodes for Every Surgical Need",
+    support:
+      "Available in multiple shapes and configurations for precise cutting, coagulation, and dependable performance.",
+    catalogHref: "/categories/bipolar-electrodes",
+    catalogLabel: "Explore Products",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-05.png",
-    alt: "Precision electrosurgical instruments in a modular organizer",
+    src: "/hero/05_electrosurgical_pencil.png",
+    alt: "Ergonomic electrosurgical pencil for accurate energy delivery",
+    headline: "Ergonomic Electrosurgical Pencils for Maximum Control",
+    support:
+      "Lightweight, comfortable, and dependable for accurate energy delivery across a wide range of procedures.",
+    catalogHref: "/categories/electrosurgical-pencils",
+    catalogLabel: "Explore Products",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
   },
-] as const;
+  {
+    src: "/hero/06_bipolar_cables_connectors.png",
+    alt: "Durable bipolar cables and connectors for reliable operating room connectivity",
+    headline: "Durable Electrosurgical Cables for Reliable Connectivity",
+    support:
+      "Engineered for secure connections, stable power transmission, and dependable operating room performance.",
+    catalogHref: "/categories/bipolar-cables",
+    catalogLabel: "Explore Products",
+    quoteHref: "/contact",
+    quoteLabel: "Request a Quote",
+  },
+];
 
 export default function HomePage() {
   const categories = getCategories();
@@ -85,17 +136,12 @@ export default function HomePage() {
       <Hero
         brand="Saluvia"
         brandSupport="Industries"
-        headline="Precision Engineered Electrosurgical Instruments for Modern Surgery"
-        support="Manufactured in Pakistan for hospitals, OEM partners, medical distributors, and healthcare brands worldwide."
-        slides={[...HERO_SLIDES]}
-        catalogHref="/products"
-        quoteHref="/contact"
+        slides={HERO_SLIDES}
       />
       <Overview />
       <WhyChoose />
       <FeaturedProducts products={featured} />
       <CategoryShowcase families={families} />
-      <Solutions />
       <Quality />
       <QuoteBand
         phone={SITE_PHONE.display}

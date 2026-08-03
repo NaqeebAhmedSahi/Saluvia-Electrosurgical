@@ -110,7 +110,7 @@ export function Quality({
         </Reveal>
 
         <Stagger className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:gap-x-12 lg:gap-y-14">
-          {pillars.map((pillar, index) => (
+          {pillars.map((pillar) => (
             <StaggerItem key={pillar.title} className="relative pl-5">
               <span
                 className="absolute left-0 top-1 h-full w-px bg-border-strong"
@@ -120,10 +120,7 @@ export function Quality({
                 className="absolute -left-1.5 top-1.5 size-3 rounded-full border-2 border-accent bg-bg-elevated"
                 aria-hidden="true"
               />
-              <p className="text-xs font-semibold tabular-nums text-ink-muted">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold text-ink">
+              <h3 className="text-xl font-semibold text-ink">
                 {pillar.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">
