@@ -17,15 +17,15 @@ export const SITE_EMAILS = {
 
 export const SITE_OFFICE = {
   companyName: "Saluvia Industries",
-  addressLines: ["Sialkot, Punjab"],
+  addressLines: ["01, Sahke, Daska, Sialkot"],
   city: "Sialkot, Punjab",
   country: "Pakistan",
   /** Single-line address for footer and compact layouts */
-  addressSingleLine: "Sialkot, Punjab, Pakistan",
+  addressSingleLine: "01, Sahke, Daska, Sialkot, Pakistan",
   phone: SITE_PHONE.display,
   phoneTel: SITE_PHONE.tel,
   email: SITE_EMAILS.general,
-  businessHours: "Monday – Saturday | 9:00 AM – 6:00 PM (PKT)",
+  businessHours: "Monday – Saturday",
   /** OpenStreetMap embed — Sialkot, Punjab */
   mapEmbedUrl:
     "https://www.openstreetmap.org/export/embed.html?bbox=74.480%2C32.450%2C74.580%2C32.540&layer=mapnik&marker=32.4945%2C74.5229",
@@ -38,7 +38,7 @@ export const SITE_SALES_CHANNELS = [
     label: "Manufacturing Facility",
     email: SITE_EMAILS.general,
     phone: SITE_PHONE.display,
-    note: "Saluvia Industries, Sialkot, Punjab, Pakistan",
+    note: "Saluvia Industries, 01, Sahke, Daska, Sialkot, Pakistan",
   },
   {
     type: "email",
@@ -52,6 +52,6 @@ export const SITE_SALES_CHANNELS = [
     label: "Phone",
     email: SITE_EMAILS.general,
     phone: SITE_PHONE.display,
-    note: "Monday – Saturday, 9:00 AM – 6:00 PM (PKT)",
+    note: "Monday – Saturday",
   },
 ] as const;

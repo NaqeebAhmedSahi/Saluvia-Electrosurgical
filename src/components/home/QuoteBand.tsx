@@ -1,5 +1,23 @@
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { SITE_OFFICE, SITE_PHONE } from "@/lib/site-contact";
+
+function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
+      <path
+        d="M20.5 11.9a8.5 8.5 0 0 1-12.9 7.3L4 20l.8-3.4A8.5 8.5 0 1 1 20.5 11.9Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.2 8.8c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.4l.8 1.9c.1.3.1.5 0 .7l-.4.6c-.1.2-.1.4 0 .6.3.6.8 1.2 1.5 1.7.2.1.4.1.6 0l.8-.4c.2-.1.5-.1.7 0l1.8.8c.4.2.5.4.5.7v.5c0 .3-.1.5-.4.7-.4.3-1 .5-1.6.4-1.5-.1-3.5-1.2-5.1-2.8-1.6-1.6-2.7-3.6-2.8-5.1-.1-.6.1-1.2.4-1.6Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
 
 export type QuoteBandProps = {
   phone?: string;
@@ -121,6 +139,7 @@ export function QuoteBand({
                           href={`tel:${phone.replace(/\s+/g, "")}`}
                           className="font-medium text-ink-inverse underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-inverse"
                         >
+                          <WhatsAppIcon className="mr-2 inline-block size-4 align-[-0.15em] text-accent-muted" />
                           {phone}
                         </a>
                       </li>

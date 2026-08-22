@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import {
   Award,
   Building2,
-  Clock,
   Factory,
   Handshake,
   Mail,
@@ -125,6 +124,19 @@ const FAQ_ITEMS = [
 function FormFallback() {
   return (
     <div className="h-[32rem] animate-pulse rounded-xl border border-border bg-bg-elevated shadow-md" />
+  );
+}
+
+function WhatsAppMark() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      className="mt-0.5 size-4 shrink-0 text-accent-bright"
+      fill="currentColor"
+    >
+      <path d="M12 2.25A9.75 9.75 0 0 0 4.68 18.48L3.6 22.2l3.82-1.04A9.75 9.75 0 1 0 12 2.25Zm0 18a8.2 8.2 0 0 1-4.18-1.15l-.3-.17-2.27.62.61-2.21-.2-.33A8.25 8.25 0 1 1 12 20.25Zm4.8-6.08c-.26-.13-1.56-.77-1.8-.86s-.42-.13-.6.13-.68.86-.83 1.04-.3.19-.56.06a6.6 6.6 0 0 1-1.94-1.2 7.2 7.2 0 0 1-1.34-1.67c-.14-.24-.02-.37.1-.49.1-.1.26-.27.39-.4s.18-.22.27-.37.05-.28-.02-.4c-.06-.13-.6-1.44-.83-1.97-.22-.52-.45-.45-.6-.46h-.5c-.17 0-.44.06-.67.28s-.86.84-.86 2.05.88 2.38 1 2.55c.12.16 1.76 2.7 4.27 3.78.6.26 1.07.42 1.44.54.61.2 1.17.17 1.61.1.49-.07 1.56-.64 1.78-1.26.22-.62.22-1.15.15-1.26-.07-.1-.24-.17-.5-.3Z" />
+    </svg>
   );
 }
 
@@ -316,10 +328,7 @@ export default function ContactPage() {
                     </a>
                   </li>
                   <li className="flex gap-2">
-                    <Phone
-                      className="mt-0.5 size-4 shrink-0 text-accent-bright"
-                      aria-hidden
-                    />
+                    <WhatsAppMark />
                     <a
                       href={`tel:${SITE_PHONE.tel}`}
                       className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -335,10 +344,9 @@ export default function ContactPage() {
                     <span>{SITE_OFFICE.addressSingleLine}</span>
                   </li>
                   <li className="flex gap-2">
-                    <Clock
-                      className="mt-0.5 size-4 shrink-0 text-accent-bright"
-                      aria-hidden
-                    />
+                    <span className="text-accent-bright" aria-hidden>
+                      •
+                    </span>
                     <span>{SITE_OFFICE.businessHours}</span>
                   </li>
                 </ul>

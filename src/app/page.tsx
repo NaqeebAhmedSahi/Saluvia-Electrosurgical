@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 
 const HERO_SLIDES = [
   {
-    src: "/hero/03_bayonet_bipolar_forceps.png",
-    alt: "Precision bayonet bipolar forceps — Saluvia electrosurgical instruments",
+    src: "/hero/banner-01.png",
+    alt: "Precision electrosurgical instruments — Saluvia Industries",
     headline: "Precision Engineered Electrosurgical Instruments",
     support:
       "Trusted manufacturing partner for hospitals, OEM partners, medical distributors, and healthcare brands worldwide.",
@@ -50,7 +50,7 @@ const HERO_SLIDES = [
     ],
   },
   {
-    src: "/hero/02_straight_bipolar_forceps.png",
+    src: "/hero/banner-02.png",
     alt: "Precision straight bipolar forceps for controlled electrosurgical performance",
     headline: "Precision Bipolar Forceps for Controlled Performance",
     support:
@@ -61,7 +61,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/01_european_bipolar_forceps.png",
+    src: "/hero/banner-03.png",
     alt: "European-style bipolar forceps with premium precision",
     headline: "European-Style Bipolar Forceps with Premium Precision",
     support:
@@ -72,7 +72,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/04_electrosurgical_electrodes.png",
+    src: "/hero/slide-04.jpeg",
     alt: "Electrosurgical electrodes in multiple shapes and configurations",
     headline: "Electrosurgical Electrodes for Every Surgical Need",
     support:
@@ -83,7 +83,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/05_electrosurgical_pencil.png",
+    src: "/hero/slide-05.jpeg",
     alt: "Ergonomic electrosurgical pencil for accurate energy delivery",
     headline: "Ergonomic Electrosurgical Pencils for Maximum Control",
     support:
@@ -94,7 +94,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/06_bipolar_cables_connectors.png",
+    src: "/hero/slide-06.jpeg",
     alt: "Durable bipolar cables and connectors for reliable operating room connectivity",
     headline: "Durable Electrosurgical Cables for Reliable Connectivity",
     support:
