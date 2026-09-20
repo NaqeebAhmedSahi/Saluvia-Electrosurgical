@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Product } from "@/lib/types";
+import type { CatalogListProduct } from "@/lib/catalog-list-payload";
 import { variantSummary } from "@/lib/product-utils";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { cn } from "@/lib/utils";
@@ -10,7 +11,7 @@ export function ProductCard({
   className,
   priority = false,
 }: {
-  product: Product;
+  product: Product | CatalogListProduct;
   className?: string;
   priority?: boolean;
 }) {
@@ -32,6 +33,7 @@ export function ProductCard({
       <Link
         href={`/products/${encodeURIComponent(product.code)}`}
         aria-label={`${product.title} — ${product.code}`}
+        prefetch={false}
         className="absolute inset-0 z-0 focus-visible:outline-none"
       />
 
@@ -39,13 +41,13 @@ export function ProductCard({
       <div className="pointer-events-none relative isolate z-0 aspect-square shrink-0 overflow-hidden bg-white">
         <Image
           src={
-            product.images.full ||
+            product.images.thumb ||
             product.images.medium ||
-            product.images.thumb
+            product.images.full
           }
           alt={`${product.title} — ${product.code}`}
           fill
-          sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
+          sizes="(max-width: 520px) 50vw, (max-width: 900px) 33vw, 240px"
           priority={priority}
           className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
         />

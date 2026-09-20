@@ -165,7 +165,7 @@ export default function ContactPage() {
             </p>
           </div>
         }
-        imageSrc="/hero/01_contact_page_hero.png"
+        imageSrc="/hero/01_contact_page_hero.webp"
         imageAlt="Electrosurgical instruments — contact Saluvia Industries for OEM and quotes"
       >
         <div className="flex flex-wrap gap-3">

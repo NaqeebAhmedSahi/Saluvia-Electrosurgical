@@ -5,8 +5,13 @@ import {
   getMailConfig,
   type ContactInquiry,
 } from "@/lib/mail";
+import { clientIpFromRequest, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+/** 5 submissions per IP per 15 minutes (pair with Cloudflare rate rules). */
+const CONTACT_LIMIT = 5;
+const CONTACT_WINDOW_MS = 15 * 60 * 1000;
 
 const INQUIRY_TYPES = new Set([
   "Quote",
@@ -87,6 +92,25 @@ function parseBody(body: unknown): { data?: ContactInquiry; error?: string } {
 
 export async function POST(request: Request) {
   try {
+    const ip = clientIpFromRequest(request);
+    const limited = rateLimit({
+      key: `contact:${ip}`,
+      limit: CONTACT_LIMIT,
+      windowMs: CONTACT_WINDOW_MS,
+    });
+    if (!limited.ok) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Too many inquiries from this network. Please try again later.",
+        },
+        {
+          status: 429,
+          headers: { "Retry-After": String(limited.retryAfterSec) },
+        },
+      );
+    }
+
     const body = await request.json();
     const parsed = parseBody(body);
     if (!parsed.data) {

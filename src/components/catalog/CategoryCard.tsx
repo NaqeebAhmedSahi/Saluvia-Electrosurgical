@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Category } from "@/lib/types";
+import type { CatalogListCategory } from "@/lib/catalog-list-payload";
 import { cn } from "@/lib/utils";
 
 export function CategoryCard({
@@ -8,13 +9,14 @@ export function CategoryCard({
   thumb,
   className,
 }: {
-  category: Category;
+  category: Category | CatalogListCategory;
   thumb?: string | null;
   className?: string;
 }) {
   return (
     <Link
       href={`/categories/${category.slug}`}
+      prefetch={false}
       className={cn(
         "group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-bg-elevated shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-md focus-visible:ring-2 focus-visible:ring-ring",
         className,

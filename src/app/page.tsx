@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 const HERO_SLIDES = [
   {
-    src: "/hero/banner-01.png",
+    src: "/hero/banner-01.webp",
     alt: "Precision electrosurgical instruments — Saluvia Industries",
     headline: "Precision Engineered Electrosurgical Instruments",
     support:
@@ -50,7 +50,7 @@ const HERO_SLIDES = [
     ],
   },
   {
-    src: "/hero/banner-02.png",
+    src: "/hero/banner-02.webp",
     alt: "Precision straight bipolar forceps for controlled electrosurgical performance",
     headline: "Precision Bipolar Forceps for Controlled Performance",
     support:
@@ -61,7 +61,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/banner-03.png",
+    src: "/hero/banner-03.webp",
     alt: "European-style bipolar forceps with premium precision",
     headline: "European-Style Bipolar Forceps with Premium Precision",
     support:
@@ -72,7 +72,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-04.jpeg",
+    src: "/hero/slide-04.webp",
     alt: "Electrosurgical electrodes in multiple shapes and configurations",
     headline: "Electrosurgical Electrodes for Every Surgical Need",
     support:
@@ -83,7 +83,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-05.jpeg",
+    src: "/hero/slide-05.webp",
     alt: "Ergonomic electrosurgical pencil for accurate energy delivery",
     headline: "Ergonomic Electrosurgical Pencils for Maximum Control",
     support:
@@ -94,7 +94,7 @@ const HERO_SLIDES = [
     quoteLabel: "Request a Quote",
   },
   {
-    src: "/hero/slide-06.jpeg",
+    src: "/hero/slide-06.webp",
     alt: "Durable bipolar cables and connectors for reliable operating room connectivity",
     headline: "Durable Electrosurgical Cables for Reliable Connectivity",
     support:

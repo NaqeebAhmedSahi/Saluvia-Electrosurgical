@@ -22,7 +22,7 @@ export function Overview({
   eyebrow = "Manufacturing",
   title = "Trusted Manufacturing Partner for Electrosurgery",
   body = "Saluvia Industries manufactures precision-engineered reusable and single-use electrosurgical instruments for hospitals, distributors, and OEM partners worldwide. Combining certified quality systems with advanced manufacturing, we deliver reliable products designed for consistent surgical performance.",
-  imageSrc = "/hero/03_homepage_manufacturing_showcase.png",
+  imageSrc = "/hero/03_homepage_manufacturing_showcase.webp",
   imageAlt = "Precision electrosurgical manufacturing showcase — Saluvia Industries",
   aboutHref = "/about",
   aboutLabel = "Explore Our Manufacturing",
